@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=
+    "Billplz Protoype">
+    <meta name="keywords" content=
+    "">
+    <title>Billplz - Prototype</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"> 
+    <!-- SVG favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+    <!-- Fallback for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" type="image/png" href="/assets/favicon/favicon-32.png">
+    <link rel="alternate icon" type="image/png" href="/assets/favicon/favicon-16.png">
+
+    <style>
+      body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  color: var(--color-text-primary);
+  background-color: var(--color-base);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  align-items: center;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+h5 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+a {
+  text-decoration: none;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 0;
+}
+.title-with-icon .primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+.primary .icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.roboto-mono, .roboto-mono-normal {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-mono-normal {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.header-a img {
+  width: 125px;
+}
+
+
+
+/* ORGANIZATION LIST */
+.org-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.org-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  border-radius: 4px;
+  transition: background-color 0.2s ease-out;
+}
+.org-item:hover {
+  background-color: var(--color-base);
+}
+.org-item__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.org-item__info {
+  display: flex;
+  flex-direction: column;
+}
+.org-item .org-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+.org-item .org-logo {
+  display: block;
+  justify-content: center;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.org-item .org-logo img {
+  display: block;
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: cover;
+}
+.org-item .org-name {
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 320px;
+  text-transform: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.org-item .org-email {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-lighter);
+}
+.org-item .icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-lighter);
+}
+
+.auth-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.auth-details__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 14px;
+}
+.auth-details__item .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-base);
+  font-size: 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+  border: 1px solid var(--color-line-primary);
+  color: var(--color-text-primary);
+}
+.auth-details__item .content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.auth-details__item .content .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+.auth-details__item .content .description {
+  font-size: 14px;
+  color: var(--color-text-lighter);
+  margin: 0;
+}
+
+.auth-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-line-info);
+  border-radius: 4px;
+}
+.auth-notice .icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+.auth-notice .text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+.auth-notice .text a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.auth-notice .text a:hover {
+  text-decoration: underline;
+}
+
+/* MISC */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.divider {
+  display: inline-block;
+  height: 16px;
+  width: 2px;
+  background-color: var(--color-line);
+  align-self: center;
+  margin: 0 8px;
+}
+
+.divider-horizontal {
+  display: inline-block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-line);
+  align-self: center;
+  margin: 0;
+}
+
+.text-overflow-ellipses {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container, .container-auth {
+  display: table;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.section, .section-auth, .section-c, .section-b, .section-b-auth, .section-a, .section-a-auth {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+}
+
+.section-a, .section-a-auth {
+  margin: 8px 0 8px 8px;
+  background-color: var(--color-bg);
+  justify-content: flex-end;
+  border-radius: 4px;
+  border: 1px solid var(--color-line-primary);
+  z-index: 1001;
+  overflow: hidden;
+}
+.section-a-auth {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--color-base);
+}
+
+.section-b, .section-b-auth {
+  margin: 8px 8px 8px 0;
+  justify-content: flex-start;
+  border: 1px solid var(--color-base);
+  overflow-y: auto;
+  z-index: 1000;
+}
+.section-b-auth {
+  margin: 0;
+  border: 0;
+}
+
+.section-c {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-base);
+  z-index: 1000;
+}
+
+.section-auth {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-base);
+  z-index: 1000;
+}
+
+.section-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+}
+.section-wrapper-center {
+  height: auto;
+  max-height: 100%;
+}
+
+.section-content-a,
+.section-content-b,
+.section-content-c,
+.section-content-d,
+.section-content-e {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 376px;
+  height: 100%;
+  align-self: flex-start;
+  padding: 40px 0;
+}
+
+.section-content-a {
+  margin-right: 60px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.section-content-b {
+  margin-left: 60px;
+}
+
+.section-content-c {
+  padding: 0;
+  margin: 0;
+}
+
+.section-content-d {
+  padding: 0;
+  margin: 0;
+  width: 456px;
+}
+
+.section-content-e {
+  padding: 0;
+  margin: 0;
+  width: 912px;
+  min-height: 400px;
+  border-radius: 8px;
+  border: 1px solid var(--color-line-primary);
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.auth-boxes {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: #e4f8fa;
+}
+
+.auth-box-a, .auth-box-b {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 50%;
+  height: 100%;
+}
+
+.auth-box-b {
+  background-color: white;
+  border-left: 1px solid var(--color-line);
+  min-height: 400px;
+
+  @media (max-width: 920px) {
+    border-left: 0;
+    min-height: 0;
+  }
+}
+
+.header-d, .header-b-center, .header-b, .header-a {
+  display: flex;
+  width: 100%;
+  height: 52px;
+  align-items: center;
+  font-weight: 500;
+  gap: 12px;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.header-b-center {
+  height: 16px;
+  justify-content: center;
+}
+
+.header-d {
+  height: 72px;
+  align-items: flex-start;
+}
+
+.content-a,
+.content-b {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 0;
+}
+.content-a-center,
+.content-b-center {
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.content-a .content-box, .content-a .content-box-c,
+.content-b .content-box,
+.content-b .content-box-c {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+}
+.content-a .content-box-c,
+.content-b .content-box-c {
+  max-width: 0;
+}
+
+.box + .box {
+  margin-top: 24px;
+}
+
+.box {
+  width: 100%;
+  min-height: 600px;
+}
+.box.content {
+  margin-top: 0;
+  align-items: center;
+}
+.box.content.login {
+  text-align: center;
+  min-height: 200px;
+}
+.box.content.center {
+  min-height: 400px;
+  background-color: var(--color-bg);
+}
+.box.content.center.a {
+  padding: 40px;
+  border-radius: 8px 0 0 8px;
+  border-top: 1px solid var(--color-line-primary);
+  border-left: 1px solid var(--color-line-primary);
+  border-bottom: 1px solid var(--color-line-primary);
+}
+.box.content.center.b {
+  padding: 40px;
+  border-radius: 0 8px 8px 0;
+  border-top: 1px solid var(--color-line-primary);
+  border-right: 1px solid var(--color-line-primary);
+  border-bottom: 1px solid var(--color-line-primary);
+}
+
+.footer-support-login, .footer-login, .footer-support-m, .footer-support, .footer {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  align-items: center;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  margin: 0;
+  margin-top: auto;
+  padding: 0;
+  justify-content: left;
+  z-index: 10;
+}
+
+.footer a,
+.footer a:active {
+  font-weight: 500;
+  margin-left: 4px;
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: none;
+}
+.footer .divider {
+  display: inline-block;
+  height: 15px;
+  width: 1px;
+  background-color: var(--color-line);
+  align-self: center;
+}
+
+.footer-support {
+  justify-content: left;
+}
+.footer-support a,
+.footer-support a:active {
+  opacity: 0.7;
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin-left: 0px;
+}
+.footer-support a:hover {
+  opacity: 1;
+}
+
+.footer-support-m {
+  justify-content: center;
+  display: none;
+}
+.footer-support-m a,
+.footer-support-m a:active {
+  opacity: 0.7;
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin-left: 0px;
+}
+.footer-support-m a:hover {
+  opacity: 1;
+}
+
+.footer-login {
+  justify-content: center;
+}
+.footer-login a,
+.footer-login a:active {
+  font-weight: 500;
+  margin-left: 4px;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.footer-login a:hover {
+  text-decoration: none;
+}
+.footer-login .divider {
+  display: inline-block;
+  height: 15px;
+  width: 1px;
+  background-color: var(--color-line);
+  align-self: center;
+}
+
+.footer-support-login {
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+.footer-support-login a,
+.footer-support-login a:active {
+  opacity: 0.7;
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin-left: 0px;
+}
+.footer-support-login a:hover {
+  opacity: 1;
+}
+
+.footer-auth-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 40px;
+}
+
+.footer-auth-section {
+  display: flex;
+}
+.footer-auth-section a,
+.footer-auth-section a:active {
+  opacity: 0.7;
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin-left: 0px;
+}
+.footer-auth-section a:hover {
+  opacity: 1;
+}
+
+.section-content-e {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 60%, rgba(242, 242, 242,1) 100%);
+}
+
+h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0B0B0B;
+}
+.title {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.title:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.title h4 {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+  color: #0B0B0B;
+}
+.title .icon {
+  display: flex;
+  width: 14px;
+  height: 14px;
+  line-height: 18.4px;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+.title.collapsed .icon {
+  transform: rotate(0deg);
+}
+.org-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-left: 12px;
+  overflow: hidden;
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+.title.collapsed + .org-list {
+  max-height: 0;
+  opacity: 0;
+}
+.org-list {
+  max-height: 1000px;
+  opacity: 1;
+}
+:root {
+--color-base: #F2F2F2;
+--color-bg: #FCFCFC;
+--color-primary: #0f50ff;
+--color-primary-light: #376dff;
+--color-error: rgb(204, 66, 66);
+--color-error-secondary: rgba(204, 66, 66, 0.7);
+--color-text-primary: #0B0B0B;
+--color-text-secondary: #6B6B6B;
+--color-text-light: #505050;
+--color-text-lighter: #848484;
+--color-text-label: #999999;
+--color-line-primary: #E0E0E0;
+--color-line: #E4E4E4;
+--color-line-lighter: #E8E8E8;
+--color-line-info: #cccccc;
+--color-border-input: #c2c2c2;
+}
+
+/*+++++++++++++++++++++++++++++++++++++DESKTOP+++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++TABLET+++++++++++++++++++++++++++++++++++++*/
+@media (max-width: 920px) {
+.container, .container-auth {
+flex-direction: column;
+align-items: stretch;
+height: auto;
+min-height: 100%;
+}
+.section-a, .section-a-auth {
+margin: 0;
+justify-content: center;
+border-radius: 0;
+flex-shrink: 0;
+overflow: hidden;
+}
+.section-a-auth {
+background-color: var(--color-bg);
+border-bottom: 1px solid var(--color-line-primary);
+}
+.section-b, .section-b-auth {
+margin: 0;
+margin-top: 24px;
+justify-content: center;
+align-items: flex-start;
+border: 0;
+flex-grow: 1;
+height: calc(100% - 280px);
+min-height: 280px;
+}
+.section-b-auth {
+margin-top: 0;
+width: 100%;
+}
+.section-auth {
+align-items: flex-start;
+justify-content: center;
+margin-top: 0;
+}
+.section-content {
+width: 376px;
+height: 100%;
+overflow: hidden;
+}
+.section-content-a, .section-content-b {
+position: unset;
+height: auto;
+min-height: 0;
+padding: 0;
+}
+.section-content-a {
+margin-right: 0;
+}
+.section-content-b {
+margin-left: 0;
+}
+.section-content-e {
+width: 455px;
+min-height: 0;
+}
+.section-a .section-content, .section-a-auth .section-content {
+height: 100%;
+}
+.section-b .section-content, .section-b-auth .section-content {
+height: 100%;
+min-height: 380px;
+}
+.header-a {
+display: none;
+margin-bottom: 40px;
+}
+.header-b {
+height: 24px;
+}
+.header-d.right {
+height: 0;
+}
+.content-b {
+padding: 0 0 56px 0;
+}
+.box {
+min-height: 0;
+}
+.box.content.center.a,
+.box.content.center.b {
+min-height: 0;
+border: 0;
+border-radius: 0;
+}
+.auth-boxes {
+flex-direction: column;
+}
+.auth-box-a, .auth-box-b {
+width: 100%;
+}
+.auth-box-a {
+padding-bottom: 40px;
+border-bottom: 1px solid var(--color-line-primary);
+}
+.account-switcher-btn {
+max-width: 373px;
+}
+.org-item {
+padding: 12px 0;
+}
+.footer {
+position: unset;
+justify-content: center;
+height: auto;
+}
+.footer-support {
+display: none;
+}
+.footer-support-m {
+display: flex;
+margin: 32px 0;
+}
+}
+/*+++++++++++++++++++++++++++++++++++++MOBILE MEDIUM+++++++++++++++++++++++++++++++++++++*/
+@media (max-width: 468px) {
+.container-auth {
+flex-direction: row;
+overflow: hidden;
+}
+.section-content-e {
+border-radius: 0;
+border: 0;
+}
+.auth-box-a, .auth-box-b {
+padding: 40px 60px;
+}
+.auth-box-b {
+border-bottom: 1px solid var(--color-line-primary);
+}
+.account-switcher-btn {
+max-width: 335px;
+}
+.org-item .org-name {
+max-width: 280px;
+}
+.footer-auth-container {
+padding: 20px 60px;
+}
+.auth-buttons {
+padding: 16px 60px;
+border-top: 0;
+border-bottom: 1px solid var(--color-line-primary);
+}
+}
+/*+++++++++++++++++++++++++++++++++++++MOBILE+++++++++++++++++++++++++++++++++++++*/
+@media (max-width: 400px) {
+h1 {
+font-size: 24px;
+}
+h2 {
+font-size: 20px;
+}
+h3 {
+font-size: 16px;
+}
+.content-a {
+font-size: 12px;
+}
+.section-content-a,
+.section-content-b,
+.section-content-b-center,
+.section-content-c {
+padding: 0 24px;
+}
+.section-content-a .onboarding-steps-mobile__title {
+font-size: 18px;
+}
+.support {
+font-size: 12px;
+}
+}
+.spacer {
+display: block;
+width: 100%;
+flex-shrink: 0;
+}
+.spacer-xs {
+height: 8px;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container-auth">
+        <div class="section section-auth">
+            <div class="section-wrapper-center">
+                <div class="section-content-e">
+
+                  <div class="auth-boxes">
+                    
+                    <!--+++++++++++++++++++++++++++DESKTOP__Left | MOBILE__Top+++++++++++++++++++++++++++++++++++++-->
+                    <div class="auth-box-a">
+                            <!-- Header -->
+                            <div class="header-d">
+                                <img src="https://qapital-email-2412.vercel.app/assets/img/logo/logo_billplz_v32407.png" alt="Billplz logo" height="14" style="height: 14px;">
+                            </div>
+
+                            <h2>bill-v2.2412</h2>
+                            <div class="spacer-xs"></div>
+                            <h5>22.04.26</h5>
+
+                            
+                    </div>
+
+                    <!--+++++++++++++++++++++++++++DESKTOP__Right | MOBILE__Bottom+++++++++++++++++++++++++++++++++++++-->
+                    <div class="auth-box-b">
+                        <!-- Header -->
+                        <div class="header-d right"></div>
+                            <a href="/bill-v1.html" class="org-item">
+                              <div class="org-item__content"><div class="org-item__info">
+                                    <span class="org-name">Bill - v1</span>
+                              </div></div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/bill-v2.html" class="org-item">
+                              <div class="org-item__content"><div class="org-item__info">
+                                    <span class="org-name">Bill - v2</span>
+                              </div></div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/bill-v3.html" class="org-item">
+                              <div class="org-item__content"><div class="org-item__info">
+                                    <span class="org-name">Bill - v3</span>
+                              </div></div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/bill-invoice.html" class="org-item">
+                              <div class="org-item__content"><div class="org-item__info">
+                                    <span class="org-name">Bill - invoice</span>
+                              </div></div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+                            
+                            <a href="/receipt.html" class="org-item">
+                              <div class="org-item__content">
+                                <div class="org-item__info">
+                                    <span class="org-name">Receipt</span>
+                                </div>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                              </svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/receipt-pending.html" class="org-item">
+                              <div class="org-item__content">
+                                <div class="org-item__info">
+                                    <span class="org-name">Receipt - pending</span>
+                                </div>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                              </svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/receipt-failed.html" class="org-item">
+                              <div class="org-item__content">
+                                <div class="org-item__info">
+                                    <span class="org-name">Receipt - failed</span>
+                                </div>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                              </svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                            <a href="/receipt-einvoice.html" class="org-item">
+                              <div class="org-item__content">
+                                <div class="org-item__info">
+                                    <span class="org-name">Receipt - e-invoice</span>
+                                </div>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                              </svg>
+                            </a>
+                            <div class="divider-horizontal"></div>
+
+                    </div>
+
+                  </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const titles = document.querySelectorAll('.title');
+          
+          titles.forEach(title => {
+              title.classList.add('collapsed');
+              
+              title.addEventListener('click', function() {
+                  this.classList.toggle('collapsed');
+              });
+          });
+      });
+    </script>
+</body>
+</html>

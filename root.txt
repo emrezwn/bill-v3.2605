@@ -1,0 +1,28 @@
+├── css/
+│   ├── style.css
+│   ├── payment-method.css
+│   ├── responsive.css
+│   └── select.css
+│   └── normalize.css
+│   ├── accordion.css
+│   ├── variables.css
+├── js/
+│   ├── script.js (main JavaScript)
+│   ├── card-payment-handler.js (bill-card.html)
+│   ├── card-validation.js (bill-card.html)
+│   ├── payment-method-handler.js (bill-card.html)
+│   └── qr-timer.js (bill-qr.html)
+│   └── select.js
+│   └── accordion.js
+│   └── payment-method.js (bill.html, bill-invoice.html)
+│   └── footer-align.js (All)
+│   └── orgNameFormatter.js (All)
+├── assets/
+│   ├── favicon/
+│   ├── images/
+│   ├── icons/
+│   └── logos/
+└── receipt.html
+├── bill-card.html
+├── bill-qr.html
+└── bill.html

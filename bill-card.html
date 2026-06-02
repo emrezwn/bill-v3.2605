@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card payment - SKILLFORGE MSIA SDN BHD - Secured by Billplz</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/payment-method.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"> 
+    <!-- SVG favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <!-- Fallback for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" type="image/png" href="assets/favicon/favicon-32.png">
+    <link rel="alternate icon" type="image/png" href="assets/favicon/favicon-16.png">
+    <script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+    <div class="container">
+        <!-- DESKTOP Left, MOBILE Top -->
+        <div class="section section-a">
+            <div class="section-wrapper">
+                <div class="section-content-a">
+                    <!-- Organization -->
+                    <div class="header-a">
+                        <div class="logo-org"><img src="assets/logos/org.svg" alt="" class=""></div>
+                        <div class="org"><span class="org-name">SKILLFORGE MSIA SDN BHD</span><span class="org-regid">1409083K</span></div>
+                    </div>
+                    <!-- Collection name, description and amount -->
+                    <div class="content-a">
+                        <h2>Premium Course</h2>
+                        <h3>Web Development Bootcamp - June access</h3>
+                        <h1>MYR 3,600.00</h1>
+                        <span class="due">Due 1 June 2026</span>
+                    </div>
+                    <div class="details">
+                        <button class="btn-details" aria-expanded="false" aria-controls="content-id">
+                            <span>View details</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                        </button>
+                        <div class="content-details" id="content-id">
+                             <!-- Bill ID & date -->
+                            <div class="content-details-header">
+                                <span class="bill-id-content">Bill ID: <span class="roboto-mono-normal bill-id">ls0ed6g4</span></span>
+                                <span>25 May 2026</span>
+                            </div>
+                            <!-- Bill details -->
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <td>Kamal Hussein</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>k.hussein@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <th>Mobile number</th>
+                                    <td>	+6012 345 6789</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="footer-support">
+                        <!-- <span><a href="#" class="">Terms</a></span>
+                        <span><a href="#" class="">Privacy</a></span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DESKTOP Right, MOBILE Bottom -->
+        <div class="section section-b">
+            <div class="section-wrapper">
+                <div class="section-content-b">
+                    <div class="header-b">
+                        <span>Pay with card</span>
+                        <img src="assets/logos/pci-dss.svg" class="security">
+                    </div>
+                    <div class="content-b">
+                        <!-- CARD -->
+                        <div class="payment-form-card" data-tab-content="card">
+                            <div class="card-input-container">
+                                <div class="form-group-card">
+                                    <input type="text" id="cardholderName" class="form-input" placeholder=" " aria-required="true" aria-label="Cardholder Name" required>
+                                    <label for="cardholderName" class="form-label">Cardholder name</label>
+                                </div>
+                            </div>
+                            <div class="error-message" id="cardholderNameError"></div>
+                            <div class="card-input-container">
+                                <div class="form-group-card">
+                                    <input type="text" id="cardNumber" class="form-input" placeholder=" " maxlength="19" aria-required="true" aria-label="Card Number" required>
+                                    <label for="cardNumber" class="form-label">Card number</label>
+                                    <div class="card-logos">
+                                        <img src="/assets/logos/visa.svg" alt="Visa" class="card-logo visa">
+                                        <img src="/assets/logos/mc.svg" alt="Mastercard" class="card-logo mastercard">
+                                        <img src="/assets/logos/amex.svg" alt="Amex" class="card-logo amex">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group-card half">
+                                        <input type="text" id="expiryDate" class="form-input" placeholder=" " aria-required="true" aria-label="Expiry Date" maxlength="5" required>
+                                        <label for="expiryDate" class="form-label">MM/YY</label>
+                                    </div>
+                                    <div class="form-group-card half">
+                                        <input type="text" id="cvc" class="form-input" placeholder=" " maxlength="3" aria-required="true" aria-label="CVC" required>
+                                        <label for="cvc" class="form-label">CVC</label>
+                                        <div class="card-logos">
+                                            <img src="assets/icons/cvc.svg" alt="CVC" class="card-logo cvc">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="error-message" id="cardDetailsError"></div>
+                            <div class="form-checkbox-card">
+                                <input type="checkbox" id="termsCheckbox" checked required>
+                                <label for="termsCheckbox">I understand and accept the <a href="#" class="terms-link">terms and conditions</a>.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-pay" disabled>
+                        <span class="btn-text">Pay MYR 3,600.00</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon lock-icon">
+                            <path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M6.8 21.8h10.5c1.2 0 2.2-1 2.2-2.2v-6.8c0-1.2-1-2.2-2.2-2.2H6.8c-1.2 0-2.2 1-2.2 2.2v6.8c0 1.2 1 2.2 2.2 2.2Z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.7c0-2.5-2-4.5-4.5-4.5s-4.5 2-4.5 4.5v3.8"/>
+                        </svg>
+                        <img src="assets/icons/processing.png" alt="Processing" class="icon processing-icon" style="display: none;">
+                    </button>
+                    <!-- FOOTER -->
+                    <div class="footer" role="contentinfo">
+                        <a href="https://www.billplz.com" class="billplz" target="_blank" rel="noopener noreferrer">
+                            <span>
+                                Secured by
+                                <!-- <img src="assets/logos/billplz-logo-black.svg" class="icon"> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 788 166.6" stroke-width="0px" class="icon">
+                                    <path d="M0 163.3V3.2C0 1.2 1.1 0 3.2 0h63.2c31.4 0 49.1 15.7 49.1 42.8v2.3c0 16.8-9.1 29.6-23.4 34.4 18 4.1 28.7 18 28.7 38v2.5c0 29.8-19.3 46.6-53.2 46.6H3.2c-2.1-.1-3.2-1.2-3.2-3.3zM61.2 66C73.5 66 81 59.6 81 49.2v-1.8c0-10.5-7.3-16.6-19.8-16.6H35.5v35.3l25.7-.1zm2.2 69.8c13.9 0 21.8-6.6 21.8-18v-3.2c0-11.6-8-18.2-21.8-18.2h-28v39.4h28zm79.9 27.5V3.2c0-2 1.1-3.2 3.2-3.2h29.1c2 0 3.2 1.1 3.2 3.2v160.2c0 2-1.1 3.2-3.2 3.2h-29.1c-2.1-.1-3.2-1.2-3.2-3.3zm176.6 0V3.2c0-2 1.1-3.2 3.2-3.2h29.1c2 0 3.2 1.1 3.2 3.2v130.6h51.7c2 0 3.2 1.1 3.2 3.2v26.4c0 2-1.1 3.2-3.2 3.2h-84c-2.1-.1-3.2-1.2-3.2-3.3zm-109 0V3.2c0-2 1.1-3.2 3.2-3.2h29.1c2 0 3.2 1.1 3.2 3.2v130.6h51.7c2 0 3.2 1.1 3.2 3.2v26.4c0 2-1.1 3.2-3.2 3.2h-84c-2.1-.1-3.2-1.2-3.2-3.3zm354.9 0V3.2c0-2 1.1-3.2 3.2-3.2h29.1c2 0 3.2 1.1 3.2 3.2v130.6H653c2 0 3.2 1.1 3.2 3.2v26.4c0 2-1.1 3.2-3.2 3.2h-84c-2-.1-3.2-1.2-3.2-3.3zm-136.9 0V3.2c0-2 1.1-3.2 3.2-3.2h54.6c36.6 0 56.2 21.6 56.2 53v11.4c0 32.3-19.6 52.8-56.2 52.8h-22.3v46.2c0 2-1.1 3.2-3.2 3.2h-29.1c-2.1-.1-3.2-1.2-3.2-3.3zm55-77.8c17.5 0 23.4-8 23.4-23.4v-6.6c0-15-5.9-23.7-23.4-23.7h-19.6v53.7h19.6zM784.7 0H677.8c-1.8 0-3.2 1.4-3.2 3.2v26.4c0 1.8 1.4 3.2 3.2 3.2h68.5l-69.4 98.3c-1.5 2.1-2.2 4.5-2.2 7v25.3c0 1.8 1.4 3.2 3.2 3.2h106.9c1.8 0 3.2-1.4 3.2-3.2V137c0-1.8-1.4-3.2-3.2-3.2H715l70.8-100.9c1.4-2.1 2.2-4.5 2.2-7V3.2c-.1-1.8-1.5-3.2-3.3-3.2z"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script type="module" src="js/orgNameFormatter.js"></script>
+    <script src="js/footer-align.js"></script>
+    <script src="js/card-validation.js"></script>
+    <script src="js/card-payment-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #006fcf;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="g10">
+    <path id="path12" class="cls-2" d="M8.5,23.5h15v-15h-15v15Z"/>
+    <g id="g14">
+      <path id="path16" class="cls-3" d="M13.9,21.1h5.9s.9-1,.9-1l.9,1h1.8v-1.5l-1.1-1.2,1.1-1.2v-1.5h-9.6s0,5.4,0,5.4Z"/>
+    </g>
+    <g id="g18">
+      <path id="path20" class="cls-1" d="M14.6,20.5v-4.2h3.6v1h-2.4v.7h2.3v1h-2.3v.6h2.4v1h-3.6Z"/>
+    </g>
+    <g id="g22">
+      <path id="path24" class="cls-2" d="M22,16.3l-1.2,1.3-1.2-1.3h-1.5l2,2.1-2,2.1h1.5l1.2-1.3,1.2,1.3h1.5c0,0-1.9-2.1-1.9-2.1l1.9-2.1h0s-1.5,0-1.5,0Z"/>
+    </g>
+    <g id="g26">
+      <path id="path28" class="cls-3" d="M21.3,11l-.5,1.4-.5-1.4h-2.8v1.8l-.8-1.8h-2.3l-2.4,5.4h11.5v-5.4h-2.2Z"/>
+    </g>
+    <g id="g30">
+      <path id="path32" class="cls-1" d="M15,14l.6-1.3.6,1.3h-1.1ZM14.8,11.6l-1.9,4.2h1.3l.4-.8h1.9l.4.8h1.3l-1.9-4.2h-1.5Z"/>
+    </g>
+    <g id="g34">
+      <path id="path36" class="cls-2" d="M18.1,15.8h1.1s0-2.9,0-2.9l1.1,2.9h1l1-2.9v2.9h1.1v-4.2h-1.7l-.9,2.6-.9-2.6h-1.8s0,4.2,0,4.2Z"/>
+    </g>
+  </g>
+</svg>

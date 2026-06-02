@@ -1,0 +1,624 @@
+/* BASE */
+.payment-form, .payment-form-qr, .payment-form-card {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-weight: 500;
+  text-decoration: none;
+}
+.payment-form-qr {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-input);
+}
+
+.form-group {
+  display: block;
+  position: relative;
+}
+.form-group-card {
+  display: flex;
+  position: relative;
+  height: 56px;
+  width: 100%;
+}
+.form-group-qr {
+  display: block;
+  position: relative;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-input);
+}
+.form-group.half {
+  margin-top: -1px;
+  width: 50%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.form-input {
+  flex: 1;
+  width: 100%;
+  padding: 28px 20px 10px 20px;
+  height: 56px;
+  border-radius: 0;
+  font-size: 16px;
+  background-color: var(--color-bg);
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+.form-input:focus {
+  box-shadow: inset 0 0 0 1px #0F50FF;
+  border-color: #0F50FF;
+  outline: none;
+}
+.form-input:focus + .form-label, .form-input:not(:placeholder-shown) + .form-label {
+  top: 10px;
+  left: 21px;
+  font-size: 12px;
+  color: #9E9E9E;
+}
+.form-input:invalid:not(:placeholder-shown) {
+  border-color: #E8627D;
+  box-shadow: inset 0 0 0 1px #E8627D;
+}
+.form-input:focus:invalid {
+  box-shadow: inset 0 0 0 1px #0F50FF;
+}
+
+.form-label {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  font-size: 16px;
+  color: #9E9E9E;
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+}
+
+/* FPX */
+#accountholderType {
+  border-radius: 4px;
+}
+
+#bankType {
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+#bankType option {
+  padding: 10px;
+}
+#bankType option:hover {
+  background-color: #f0f0f0;
+}
+#bankType::-webkit-scrollbar {
+  width: 10px;
+}
+#bankType::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#bankType::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+#bankType::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* SELECT */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../assets/icons/chevron-updown.svg");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: 20px;
+}
+
+option {
+  padding: 5px;
+}
+
+/* CARD */
+.card-input-container {
+  display: relative;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--color-border-input);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.card-input-container .form-group-card {
+  margin-bottom: 0;
+}
+
+#cardholderName {
+  border-radius: 4px;
+}
+
+#cardNumber {
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid var(--color-border-input);
+}
+
+#expiryDate {
+  border-radius: 0 0 0 4px;
+  border-right: 1px solid var(--color-border-input);
+}
+
+#cvc {
+  border-radius: 0 0 4px 0;
+}
+
+.card-logos {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0;
+}
+
+.card-logo {
+  width: 36px;
+  height: 36px;
+  transition: opacity 0.2s ease-out;
+  opacity: 0.8;
+}
+.card-logo.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-b .security {
+  width: 60px;
+  opacity: 0.8;
+}
+
+/* QR */
+.payment-qr {
+  display: flex;
+  scale: 1;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  padding: 56px 0 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.payment-qr-footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.payment-qr .logo {
+  width: 64px;
+  height: 64px;
+}
+.payment-qr .qr-code {
+  width: 220px;
+  height: 220px;
+  margin: 20px 0;
+}
+
+/* E-Invoice Receipt Specific Styles */
+.einvoice-qr {
+  display: flex;
+  scale: 1;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  padding: 92px 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.einvoice-qr .qr-code {
+  width: 180px;
+  height: 180px;
+  margin: 0;
+}
+
+.einvoice-receipt-qr-container {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-input);
+  margin-bottom: 24px;
+}
+
+.einvoice-receipt-qr-left {
+  display: flex;
+  flex: 1;
+  position: relative;
+  background-color: var(--color-bg);
+  border-right: 1px solid var(--color-border-input);
+  padding: 24px 20px;
+  align-items: center;
+}
+
+.einvoice-tax-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.tax-summary-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2E2E2E;
+  white-space: nowrap;
+}
+
+.tax-summary-desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-text-lighter);
+  line-height: 1.4;
+}
+
+.einvoice-receipt-qr-right {
+  display: block;
+  position: relative;
+  background-color: var(--color-bg);
+  flex-shrink: 0;
+}
+
+.einvoice-receipt-qr-right .einvoice-qr {
+  padding: 24px 20px;
+}
+
+.einvoice-receipt-qr-right .qr-code {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+/* Campaign Receipt Specific Styles */
+.campaign-qr {
+  display: flex;
+  scale: 1;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  padding: 92px 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.campaign-qr .qr-code {
+  width: 180px;
+  height: 180px;
+  margin: 0;
+}
+
+.campaign-receipt-container {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-input);
+  margin-bottom: 24px;
+  /* background-color: #cefceb; */
+}
+
+.campaign-receipt-left {
+  display: flex;
+  flex: 1;
+  position: relative;
+  /* background-color: var(--color-bg); */
+  padding: 24px 20px;
+  align-items: center;
+}
+
+.campaign-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.summary-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2E2E2E;
+  line-height: 1.4;
+}
+
+.summary-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-ligh);
+  line-height: 1.4;
+  margin-top: 12px;
+}
+
+.campaign-receipt-right {
+  display: block;
+  position: relative;
+  /* background-color: var(--color-bg); */
+  border-left: 1px solid var(--color-border-input);
+  flex-shrink: 0;
+}
+
+.campaign-receipt-right .campaign-qr {
+  padding: 24px 20px;
+}
+
+.campaign-receipt-right .qr-code {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+/* Campaign Claim Page Styles */
+.claim-gift-header {
+  margin-top: 32px;
+  border-top: none !important;
+}
+
+.gift-label {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  color: #2E2E2E;
+  margin-bottom: 4px;
+}
+
+.claim-section {
+  border-top: 1px solid var(--color-line);
+  padding-top: 24px;
+}
+
+.campaign-header .logo-org {
+  width: 48px;
+  height: 48px;
+}
+
+.campaign-header .logo-org img {
+  width: 32px;
+  height: 32px;
+}
+
+.status-payment.unclaimed {
+  background-color: #F5F5F5;
+  color: #666;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2E2E2E;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.section-heading .icon-small {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.section-subheading {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  display: block;
+}
+
+.claim-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 24px;
+}
+
+.claim-form .form-group {
+  margin-bottom: 0;
+}
+
+.claim-form .form-input {
+  width: 100%;
+  height: 56px;
+  padding: 28px 20px 10px 20px;
+  font-size: 16px;
+  border: 1px solid var(--color-border-input);
+  border-radius: 0;
+  border-bottom: none;
+  background-color: var(--color-bg);
+  outline: none;
+  transition: box-shadow 0.2s ease;
+  box-shadow: none;
+}
+
+.claim-form .form-input:focus {
+  box-shadow: inset 0 0 0 1px #0F50FF;
+  border-color: #0F50FF;
+  outline: none;
+}
+
+.claim-form .form-input:invalid {
+  border-color: var(--color-border-input);
+  box-shadow: none;
+}
+
+.claim-form .form-group:first-child .form-input {
+  border-radius: 8px 8px 0 0;
+}
+
+.claim-form .form-group:last-of-type .form-input {
+  border-radius: 0 0 8px 8px;
+  border-bottom: 1px solid var(--color-border-input);
+}
+
+.claim-form select.form-input {
+  padding: 18px 20px;
+  color: #2E2E2E;
+  box-shadow: none;
+}
+
+.claim-form select.form-input:focus {
+  box-shadow: inset 0 0 0 1px #0F50FF;
+  border-color: #0F50FF;
+}
+
+.claim-form select.form-input:invalid {
+  border-color: var(--color-border-input);
+  box-shadow: none;
+}
+
+.claim-form select.form-input option:first-child {
+  color: #9E9E9E;
+}
+
+.btn-claim {
+  width: 100%;
+  height: 56px;
+  margin-top: 24px;
+  padding: 16px 24px;
+  background-color: #0F50FF;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-claim:hover {
+  background-color: #0D45E5;
+}
+
+.btn-claim:active {
+  background-color: #0A3ACC;
+}
+
+.qr-timer {
+  display: flex;
+  color: var(--color-text-primary);
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border: 1px solid var(--color-line-primary);
+  border-radius: 4px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  font-family: "Roboto Mono", monospace;
+  background-color: var(--color-bg);
+}
+
+/* CARD CHECKBOX */
+.form-checkbox-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto 28px;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #858585;
+}
+.form-checkbox-card input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-right: 8px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  background-color: var(--color-line);
+}
+.form-checkbox-card input[type=checkbox]:checked {
+  background-color: #366cfe !important;
+  border-color: #366cfe !important;
+}
+.form-checkbox-card input[type=checkbox]:checked::after, .form-checkbox-card input[type=checkbox]:checked::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  color: var(--color-bg) !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-checkbox-card input[type=checkbox]:checked::after {
+  background-image: url("../assets/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: var(--color-bg);
+}
+.form-checkbox-card label {
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* ERROR */
+.error-message {
+  display: flex;
+  position: absolute;
+  color: #E8627D;
+  font-size: 13px;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  padding: 4px 0 0 21px;
+}
+.error-message-cn {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  text-align: left;
+}
+.error-message:not(.qr-error-message) {
+  position: static;
+  text-align: left;
+}
+
+.qr-error-message {
+  position: absolute;
+  top: 14px;
+  left: -8px;
+  text-align: left;
+  justify-content: center;
+  color: #E8627D;
+  font-size: 14px;
+}
+
+.card-input-container,
+.form-group,
+.form-row,
+.form-group.half {
+  position: relative;
+}
+
+/*# sourceMappingURL=payment-method.css.map */

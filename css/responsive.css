@@ -1,0 +1,217 @@
+@media (min-width: 921px) {
+  .btn-details {
+    justify-content: flex-start;
+    cursor: default;
+    pointer-events: none;
+    height: auto;
+  }
+  .btn-details .icon {
+    display: none;
+  }
+  .details .content-details {
+    max-height: 700px !important;
+    opacity: 1 !important;
+    overflow: visible;
+  }
+}
+@media (max-width: 920px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    min-height: 100%;
+  }
+  .section-a {
+    margin: 0;
+    justify-content: center;
+    border: 0;
+    border-radius: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 0px 8px 0 rgba(59, 59, 59, 0.2);
+  }
+  .section-b {
+    margin: 0;
+    margin-top: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    border: 0;
+    flex-grow: 1;
+    height: calc(100% - 280px);
+    min-height: 280px;
+  }
+  .section-r {
+    margin-top: 0;
+    margin-bottom: auto;
+    padding-top: 0px;
+  }
+  .section-content {
+    width: 376px;
+    height: 100%;
+    overflow: hidden;
+  }
+  .section-content-a, .section-content-b {
+    position: unset;
+    height: auto;
+    min-height: 0;
+  }
+  .section-content-a {
+    margin-right: 0;
+  }
+  .section-content-b {
+    margin-left: 0;
+  }
+  .section-a .section-content {
+    height: 100%;
+  }
+  .section-b .section-content {
+    height: 100%;
+    min-height: 380px;
+  }
+  .header-a {
+    height: 64px;
+  }
+  .content-a {
+    border-top: none;
+  }
+  .content-a-header {
+    display: none;
+  }
+  .content-b {
+    padding: 0;
+  }
+  .details {
+    height: 100%;
+    margin-top: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .details .content-details {
+    max-height: 0;
+    border-bottom: 0px solid var(--color-line-horizontal);
+  }
+  .details .content-details table {
+    margin: 24px 0;
+  }
+  .details .content-details .content-details-header {
+    border-top: 1px solid #E4E4E4;
+  }
+  .footer {
+    position: unset;
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+  }
+  .footer-support {
+    display: none;
+  }
+  .footer .terms {
+    display: flex;
+    margin-top: 0;
+  }
+}
+@media (max-width: 458px) {
+  .section-content-r {
+    width: 400px;
+  }
+  .padding-main {
+    padding: 0 24px;
+  }
+  .banner {
+    margin: 16px 0 0 0;
+  }
+  .banner img {
+    max-width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3,
+  .due {
+    font-size: 12px;
+  }
+  .content-a {
+    font-size: 12px;
+  }
+  .section-content-a,
+  .section-content-b {
+    padding: 0 24px;
+  }
+  #btn-onlineBanking,
+  #btn-card,
+  #btn-wallet,
+  #btn-qr,
+  #btn-bnpl {
+    padding: 11px 18px;
+  }
+  .payment-method-content .payment-name {
+    font-size: 14px;
+  }
+  .payment-method-content .payment-option {
+    padding: 11px 16px;
+    height: 56px;
+  }
+  .payment-method-content .payment-option .logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+  }
+  .payment-methods-btn .checkmark {
+    left: 87%;
+  }
+  .custom-option.disabled {
+    font-size: 13px;
+  }
+  .form-checkbox-card {
+    display: flex;
+    gap: 8px;
+  }
+  .form-checkbox-card input[type=checkbox] {
+    margin: 0 16px;
+  }
+  .section-content-r {
+    width: 340px;
+  }
+  .padding-main {
+    padding: 0 24px;
+  }
+  .support {
+    font-size: 12px;
+  }
+  .banner {
+    margin: 16px 0 0 0;
+  }
+  .banner img {
+    max-width: 100%;
+  }
+  .einvoice-receipt-qr-container {
+    flex-direction: column;
+  }
+  .einvoice-receipt-qr-left {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-input);
+    padding: 20px;
+  }
+  .einvoice-receipt-qr-right .einvoice-qr {
+    padding: 20px;
+  }
+  .einvoice-receipt-qr-right .qr-code {
+    width: 90px;
+    height: 90px;
+  }
+  .line-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .line-item-amount {
+    align-self: flex-end;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

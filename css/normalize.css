@@ -1,0 +1,138 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+     ========================================================================== */
+/**
+   * Remove the margin in all browsers.
+   */
+body {
+  margin: 0;
+}
+
+/**
+   * Render the `main` element consistently in IE.
+   */
+main {
+  display: block;
+}
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+/* h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  } */
+/* ... (truncated for brevity) ... */
+/* Forms
+     ========================================================================== */
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/* Scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #999 var(--color-background);
+}
+
+/* Prevent blue links on mobile */
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent blue links for icons */
+a .icon,
+button .icon {
+  color: inherit;
+}
+
+/* Remove default button styling on iOS */
+button,
+input[type=submit],
+input[type=reset],
+input[type=button] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Prevent grey background on tap for iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix for blue SVG icons inside buttons */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button svg,
+a svg {
+  fill: none;
+  stroke: currentColor;
+}
+button *,
+a * {
+  color: inherit;
+}
+#btn-onlineBanking .icon,
+#btn-duitnow .icon,
+#btn-duitnowqr .icon,
+.billplz .icon {
+  fill: currentColor;
+}
+
+/*# sourceMappingURL=normalize.css.map */

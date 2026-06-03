@@ -309,7 +309,7 @@
   transition: border-color 0.2s ease-out;
 }
 .payment-option .logo-wide {
-  width: 48px;
+  width: 28px;
   height: 28px;
   object-fit: contain;
 }

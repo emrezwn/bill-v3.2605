@@ -1,3 +1,367 @@
+/* Payment Methods Container */
+.payment-methods {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Payment Method Option */
+.payment-methods-option {
+  border: 2px solid var(--color-line);
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  transition: border-color 0.15s ease-out;
+  overflow: hidden;
+}
+.payment-methods-option:has(.payment-methods-btn.active) {
+  border-color: var(--color-primary);
+}
+
+/* Payment Method Button */
+.payment-methods-btn {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  min-height: 56px;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none !important;
+  color: var(--color-text-primary);
+  opacity: 1;
+  transition: color 0.1s ease-out;
+}
+.payment-methods-btn .payment-name {
+  flex-grow: 1;
+  margin-left: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.payment-methods-btn .payment-name-group {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+.payment-methods-btn .payment-name-group .payment-name {
+  margin-left: 0;
+}
+.payment-methods-btn .payment-desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-text-lighter);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.payment-methods-btn.active .payment-desc {
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+.payment-methods-btn .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 88.5%;
+  transform: translateY(-50%);
+  height: 14px;
+  width: 14px;
+  border: 2px solid #B0B0B0;
+  border-radius: 50%;
+  transition: all 0.1s ease-out;
+}
+.payment-methods-btn .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  transition: opacity 0.1s ease-out;
+}
+.payment-methods-btn .icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease-out;
+}
+.payment-methods-btn .icon.icon-small {
+  width: 28px;
+  height: 28px;
+}
+.payment-methods-btn .icon.icon-big {
+  width: 36px;
+  height: 36px;
+}
+.payment-methods-btn .icon.icon-wide {
+  width: 72px;
+  height: 36px;
+}
+.payment-methods-btn .payment-method-logo {
+  object-fit: contain;
+  border-radius: 4px;
+}
+.payment-methods-btn .payment-method-logo.logo-wide {
+  width: 36px;
+}
+.payment-methods-btn .icon-stack {
+  display: flex;
+  gap: 4px;
+  width: 48px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.payment-methods-btn .icon-stack .icon-stack-item {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+/* V2: Text left, logos right */
+.payment-methods-btn.v2-btn {
+  padding: 14px 20px;
+}
+.payment-methods-btn.v2-btn .payment-name-group {
+  margin-left: 0;
+}
+.btn-logos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.btn-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+.payment-methods-btn.active .btn-logo {
+  opacity: 1;
+}
+
+.payment-methods-btn input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.payment-methods-btn.active {
+  opacity: 1;
+  color: var(--color-primary);
+}
+.payment-methods-btn.active .checkmark {
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+  border-color: var(--color-primary);
+}
+.payment-methods-btn.active .checkmark::after {
+  opacity: 1;
+}
+.payment-methods-btn.active .icon,
+.payment-methods-btn.active .payment-name {
+  color: var(--color-primary);
+}
+/* Payment Method Content */
+.payment-method-content {
+  pointer-events: none;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s, opacity 0.2s ease-out, transform 0.3s ease-out, padding 0.2s ease-out;
+  padding: 0 24px;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  background-image: linear-gradient(to top, rgba(15, 80, 255, 0.06), rgba(252, 252, 252, 0));
+}
+.payment-method-content.active {
+  pointer-events: auto;
+  max-height: 600px;
+  opacity: 1;
+  padding: 8px 24px 24px 24px;
+}
+.payment-method-content:not(.active) * {
+  pointer-events: none !important;
+}
+
+/* Override payment-methods.css */
+.payment-method-content .checkmark {
+  left: 90%;
+}
+
+/* Account Type Tabs */
+.account-type-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 8px;
+}
+.account-type-tab {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px solid var(--color-line);
+  cursor: pointer;
+  background-color: var(--color-bg);
+  color: var(--color-text-secondary);
+  transition: all 0.15s ease-out;
+}
+.account-type-tab:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.account-type-tab:last-child {
+  border-radius: 0 8px 8px 0;
+  margin-left: -2px;
+}
+.account-type-tab.active {
+  background-color: #fff;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  z-index: 1;
+  position: relative;
+}
+
+/* Scrollable Bank List */
+.payment-list.bank-list {
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) #e6ecff;
+}
+.payment-list.bank-list::-webkit-scrollbar {
+  width: 6px;
+}
+.payment-list.bank-list::-webkit-scrollbar-track {
+  background: #e6ecff;
+}
+.payment-list.bank-list::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+/* Offline bank option */
+.bank-option[data-status="offline"] {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+  background-color: #f5f5f5;
+}
+.bank-option[data-status="offline"] .logo {
+  filter: grayscale(100%);
+}
+.bank-option[data-status="offline"] .checkmark {
+  display: none;
+}
+.bank-status {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  font-family: "Roboto Mono", monospace;
+}
+
+/* SUBOPTION: WALLET & BNPL */
+.payment-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+}
+
+.payment-option {
+  display: flex;
+  justify-content: flex-start;
+  opacity: 1;
+  align-items: center;
+  position: relative;
+  padding: 11px 20px 11px 20px;
+  cursor: pointer;
+  opacity: 1 !important;
+  border-bottom: 1px solid var(--color-line);
+  background-color: var(--color-bg);
+}
+.payment-option:last-child {
+  border-bottom: 0px solid var(--color-line);
+}
+.payment-option:hover {
+  transition: all 0.1s ease-out;
+  opacity: 1;
+}
+.payment-option input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.payment-option .logo {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-line-lighter);
+  margin-right: 12px;
+  border-radius: 4px;
+  transition: border-color 0.2s ease-out;
+}
+.payment-option .logo-wide {
+  width: 48px;
+  height: 28px;
+  object-fit: contain;
+}
+.payment-option input:checked ~ .logo {
+  border-color: var(--color-primary);
+}
+.payment-option input:checked + .payment-name {
+  color: var(--color-primary);
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  height: 14px;
+  width: 14px;
+  border: 2px solid #B0B0B0;
+  border-radius: 50%;
+  transition: all 0.1s ease-out;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  transition: all 0.1s ease-out;
+}
+
+.payment-option input:checked ~ .checkmark {
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+  border-color: var(--color-primary);
+}
+.payment-option input:checked ~ .checkmark:after {
+  display: block;
+}
+.payment-option .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.payment-name {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Processing state for pay button */
+.btn-pay.processing .lock-icon {
+  display: none;
+}
+.btn-pay.processing .processing-icon {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
 /* BASE */
 .payment-form, .payment-form-qr, .payment-form-card {
   position: relative;
@@ -9,7 +373,7 @@
 .payment-form-qr {
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--color-border-input);
+  border: 2px solid var(--color-line);
 }
 
 .form-group {
@@ -26,7 +390,7 @@
   display: block;
   position: relative;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border-input);
+  border-bottom: 2px solid var(--color-line);
 }
 .form-group.half {
   margin-top: -1px;
@@ -52,22 +416,22 @@
   transition: box-shadow 0.2s ease;
 }
 .form-input:focus {
-  box-shadow: inset 0 0 0 1px #0F50FF;
-  border-color: #0F50FF;
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+  border-color: var(--color-primary);
   outline: none;
 }
 .form-input:focus + .form-label, .form-input:not(:placeholder-shown) + .form-label {
   top: 10px;
   left: 21px;
   font-size: 12px;
-  color: #9E9E9E;
+  color: var(--color-text-placeholder);
 }
 .form-input:invalid:not(:placeholder-shown) {
   border-color: #E8627D;
   box-shadow: inset 0 0 0 1px #E8627D;
 }
 .form-input:focus:invalid {
-  box-shadow: inset 0 0 0 1px #0F50FF;
+  box-shadow: inset 0 0 0 1px var(--color-primary);
 }
 
 .form-label {
@@ -75,7 +439,7 @@
   top: 18px;
   left: 20px;
   font-size: 16px;
-  color: #9E9E9E;
+  color: var(--color-text-placeholder);
   transition: all 0.2s ease-out;
   pointer-events: none;
 }
@@ -258,7 +622,7 @@ option {
 .tax-summary-label {
   font-size: 12px;
   font-weight: 500;
-  color: #2E2E2E;
+  color: var(--color-text-dark);
   white-space: nowrap;
 }
 
@@ -334,14 +698,14 @@ option {
 .summary-label {
   font-size: 16px;
   font-weight: 700;
-  color: #2E2E2E;
+  color: var(--color-text-dark);
   line-height: 1.4;
 }
 
 .summary-desc {
   font-size: 13px;
   font-weight: 400;
-  color: var(--color-text-ligh);
+  color: var(--color-text-light);
   line-height: 1.4;
   margin-top: 12px;
 }
@@ -374,7 +738,7 @@ option {
   display: block;
   font-size: 17px;
   font-weight: 500;
-  color: #2E2E2E;
+  color: var(--color-text-dark);
   margin-bottom: 4px;
 }
 
@@ -408,7 +772,7 @@ option {
   gap: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #2E2E2E;
+  color: var(--color-text-dark);
   margin-bottom: 16px;
   line-height: 1.5;
 }
@@ -452,8 +816,8 @@ option {
 }
 
 .claim-form .form-input:focus {
-  box-shadow: inset 0 0 0 1px #0F50FF;
-  border-color: #0F50FF;
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+  border-color: var(--color-primary);
   outline: none;
 }
 
@@ -473,13 +837,13 @@ option {
 
 .claim-form select.form-input {
   padding: 18px 20px;
-  color: #2E2E2E;
+  color: var(--color-text-dark);
   box-shadow: none;
 }
 
 .claim-form select.form-input:focus {
-  box-shadow: inset 0 0 0 1px #0F50FF;
-  border-color: #0F50FF;
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .claim-form select.form-input:invalid {
@@ -488,7 +852,7 @@ option {
 }
 
 .claim-form select.form-input option:first-child {
-  color: #9E9E9E;
+  color: var(--color-text-placeholder);
 }
 
 .btn-claim {
@@ -496,7 +860,7 @@ option {
   height: 56px;
   margin-top: 24px;
   padding: 16px 24px;
-  background-color: #0F50FF;
+  background-color: var(--color-primary);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -522,7 +886,7 @@ option {
   width: 70px;
   padding: 8px 0;
   margin: 8px 0;
-  border: 1px solid var(--color-line-primary);
+  border: 1px solid var(--color-line);
   border-radius: 4px;
   transition: color 0.3s ease, border-color 0.3s ease;
   font-family: "Roboto Mono", monospace;
@@ -537,7 +901,7 @@ option {
   margin: 8px auto 28px;
   padding: 8px 0;
   font-size: 13px;
-  color: #858585;
+  color: var(--color-text-muted);
 }
 .form-checkbox-card input[type=checkbox] {
   -webkit-appearance: none;
@@ -620,5 +984,3 @@ option {
 .form-group.half {
   position: relative;
 }
-
-/*# sourceMappingURL=payment-method.css.map */

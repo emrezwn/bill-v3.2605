@@ -5,17 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Securely pay your bill through BILLPLZ's bill page. Multiple payment options available including credit card, online banking, and digital wallets.">
-  <meta name="keywords" content="bill payment, online payment, secure payment, fintech, BILLPLZ">
-  <title>Payment page - SKILLFORGE MSIA SDN BHD - Secured by BILLPLZ</title>
+    content="Securely pay your bill through Billplz's bill page. Multiple payment options available including credit card, online banking, and digital wallets.">
+  <meta name="keywords" content="bill payment, online payment, secure payment, fintech, Billplz">
+  <title>Payment page - SKILLFORGE MSIA SDN BHD - Secured by Billplz</title>
   <!-- Styles -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/payment-method.css">
-  <link rel="stylesheet" href="css/select.css">
-  <link rel="stylesheet" href="css/accordion.css">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100,300,400,500,600,700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -364,7 +362,7 @@
               <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-duitnowqr" role="radio" aria-checked="false"
                   aria-labelledby="duitnowqr-label">
-                  <img src="assets/logos/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="icon icon-big">
+                  <img src="assets/logos/wallet/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="icon icon-big">
                   <span class="payment-name-group">
                     <span class="payment-name" id="duitnowqr-label">Wallet</span>
                     <span class="payment-desc">Scan QR code to pay via a wallet/bank app</span>
@@ -377,31 +375,31 @@
                     <div class="form-group">
                       <div class="payment-list">
                         <label class="payment-option accordion" aria-label="Select DuitNow QR">
-                            <img src="assets/logos/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="logo">
                             <span class="payment-name">DuitNow QR</span>
                             <input type="radio" name="walletSelect" value="duitnowqr" data-category="duitnowqr" data-method="duitnowqr">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select GrabPay">
-                            <img src="assets/logos/pm-logo-grabpay.svg" alt="GrabPay" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-grabpay.svg" alt="GrabPay" class="logo">
                             <span class="payment-name">GrabPay</span>
                             <input type="radio" name="walletSelect" value="grabpay" data-category="duitnowqr" data-method="grabpay">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select Boost Wallet">
-                            <img src="assets/logos/pm-logo-boost.svg" alt="Boost Wallet" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-boost.svg" alt="Boost Wallet" class="logo">
                             <span class="payment-name">Boost</span>
                             <input type="radio" name="walletSelect" value="boost" data-category="duitnowqr" data-method="boost">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select Touch 'n Go eWallet">
-                            <img src="assets/logos/pm-logo-tng.svg" alt="Touch 'n Go eWallet" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-tng.svg" alt="Touch 'n Go eWallet" class="logo">
                             <span class="payment-name">Touch 'n Go eWallet</span>
                             <input type="radio" name="walletSelect" value="tng" data-category="duitnowqr" data-method="tng">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select ShopeePay">
-                            <img src="assets/logos/pm-logo-shopee.svg" alt="ShopeePay" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-shopee.svg" alt="ShopeePay" class="logo">
                             <span class="payment-name">ShopeePay</span>
                             <input type="radio" name="walletSelect" value="shopeepay" data-category="duitnowqr" data-method="shopeepay">
                             <span class="checkmark"></span>
@@ -501,8 +499,8 @@
                 <button class="payment-methods-btn" id="btn-card" role="radio" aria-checked="false"
                   aria-labelledby="card-label">
                   <div class="icon-stack">
-                    <img src="assets/logos/visa.svg" alt="Visa" class="icon-stack-item">
-                    <img src="assets/logos/mc.svg" alt="Mastercard" class="icon-stack-item">
+                    <img src="assets/logos/card/visa.svg" alt="Visa" class="icon-stack-item">
+                    <img src="assets/logos/card/mc.svg" alt="Mastercard" class="icon-stack-item">
                   </div>
                   <span class="payment-name-group">
                     <span class="payment-name" id="card-label">Card</span>
@@ -533,12 +531,12 @@
                 </div>
               </div>
 
-              <!-- BNPL -->
+              <!-- Instalments -->
               <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-bnpl" role="radio" aria-expanded="false" aria-controls="bnpl-content">
                   <div class="icon-stack">
-                    <img src="assets/logos/pm-logo-paylaterbygrab.svg" alt="Grab PayLater" class="icon-stack-item">
-                    <img src="assets/logos/pm-logo-atome.svg" alt="Atome" class="icon-stack-item">
+                    <img src="assets/logos/bnpl/pm-logo-paylaterbygrab.svg" alt="Grab PayLater" class="icon-stack-item">
+                    <img src="assets/logos/bnpl/pm-logo-atome.svg" alt="Atome" class="icon-stack-item">
                   </div>
                   <span class="payment-name-group">
                     <span class="payment-name" id="buynowpaylater-label">Instalment</span>
@@ -552,13 +550,13 @@
                     <div class="form-group">
                       <div class="payment-list">
                         <label class="payment-option accordion" aria-label="Select Grab PayLater">
-                            <img src="assets/logos/pm-logo-paylaterbygrab.svg" alt="Paylater by Grab" class="logo">
+                            <img src="assets/logos/bnpl/pm-logo-paylaterbygrab.svg" alt="Paylater by Grab" class="logo">
                             <span class="payment-name">Grab Paylater</span>
                             <input type="radio" name="paymentMethod" value="paylaterbygrab" data-category="bnpl" data-method="paylaterbygrab">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select Atome">
-                            <img src="assets/logos/pm-logo-atome.svg" alt="Atome" class="logo">
+                            <img src="assets/logos/bnpl/pm-logo-atome.svg" alt="Atome" class="logo">
                             <span class="payment-name">Atome</span>
                             <input type="radio" name="paymentMethod" value="atome" data-category="bnpl" data-method="atome">
                             <span class="checkmark"></span>
@@ -584,7 +582,7 @@
                     <div class="form-group">
                       <div class="payment-list">
                         <label class="payment-option accordion" aria-label="Select e-Pay">
-                            <img src="assets/logos/pm-logo-epay.svg" alt="e-Pay" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-epay.svg" alt="e-Pay" class="logo">
                             <span class="payment-name">e-Pay</span>
                             <input type="radio" name="paymentMethod" value="epay" data-category="cash" data-method="paylaterbygrab">
                             <span class="checkmark"></span>
@@ -626,7 +624,7 @@
 
 
           <!-- PAY BUTTON -->
-          <button class="btn-pay" aria-label="Continue to payment page" disabled>
+          <button class="btn-pay" aria-label="Continue to the payment page" disabled>
             <span class="btn-text">Continue to the payment page</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon lock-icon">
               <path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M6.8 21.8h10.5c1.2 0 2.2-1 2.2-2.2v-6.8c0-1.2-1-2.2-2.2-2.2H6.8c-1.2 0-2.2 1-2.2 2.2v6.8c0 1.2 1 2.2 2.2 2.2Z" />
@@ -652,7 +650,6 @@
     </div>
   </div>
   <script src="js/script.js"></script>
-  <script src="js/select.js"></script>
   <script src="js/accountType.js"></script>
   <script src="js/payment-method.js"></script>
 </body>

@@ -4,10 +4,12 @@
   --color-primary: #0F50FF;
   --color-error: #ff5252;
   --color-text-primary: #0A0A0A;
+  --color-text-dark: #2E2E2E;
   --color-text-secondary: #6B6B6B;
   --color-text-light: #505050;
   --color-text-lighter: #949494;
-  --color-line-primary: #E0E0E0;
+  --color-text-muted: #858585;
+  --color-text-placeholder: #9E9E9E;
   --color-line: #E0E0E0;
   --color-line-lighter: #E8E8E8;
   --color-line-horizontal: #E4E4E4;

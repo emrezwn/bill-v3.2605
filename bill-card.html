@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Securely pay your bill through Billplz's bill page. Multiple payment options available including credit card, online banking, and digital wallets.">
+    <meta name="keywords" content="bill payment, online payment, secure payment, fintech, Billplz">
     <title>Card payment - SKILLFORGE MSIA SDN BHD - Secured by Billplz</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
@@ -22,35 +25,35 @@
     <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="main" aria-label="Bill payment">
         <!-- DESKTOP Left, MOBILE Top -->
         <div class="section section-a">
             <div class="section-wrapper">
                 <div class="section-content-a">
                     <!-- Organization -->
                     <div class="header-a">
-                        <div class="logo-org"><img src="assets/logos/org.svg" alt="" class=""></div>
+                        <div class="logo-org"><img src="assets/logos/org.svg" alt="Company logo"></div>
                         <div class="org"><span class="org-name">SKILLFORGE MSIA SDN BHD</span><span class="org-regid">1409083K</span></div>
                     </div>
+                    <!-- Bill ID & date -->
+                    <div class="bill-id-bar">
+                        <span class="bill-id-content">Bill ID: <span class="roboto-mono-normal bill-id">ls0ed6g4</span></span>
+                        <span>25 May 2026</span>
+                    </div>
                     <!-- Collection name, description and amount -->
-                    <div class="content-a">
+                    <div class="content-a" aria-labelledby="payment-amount">
                         <h2>Premium Course</h2>
                         <h3>Web Development Bootcamp - June access</h3>
-                        <h1>MYR 3,600.00</h1>
+                        <h1 id="payment-amount">MYR 3,600.00</h1>
                         <span class="due">Due 1 June 2026</span>
                     </div>
                     <div class="details">
                         <button class="btn-details" aria-expanded="false" aria-controls="content-id">
-                            <span>View details</span>
+                            <span>Payer details</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                         </button>
                         <div class="content-details" id="content-id">
-                             <!-- Bill ID & date -->
-                            <div class="content-details-header">
-                                <span class="bill-id-content">Bill ID: <span class="roboto-mono-normal bill-id">ls0ed6g4</span></span>
-                                <span>25 May 2026</span>
-                            </div>
                             <!-- Bill details -->
                             <table>
                                 <tr>
@@ -81,7 +84,7 @@
                 <div class="section-content-b">
                     <div class="header-b">
                         <span>Pay with card</span>
-                        <img src="assets/logos/pci-dss.svg" class="security">
+                        <!-- <img src="assets/logos/pci-dss.svg" class="security"> -->
                     </div>
                     <div class="content-b">
                         <!-- CARD -->
@@ -98,9 +101,9 @@
                                     <input type="text" id="cardNumber" class="form-input" placeholder=" " maxlength="19" aria-required="true" aria-label="Card Number" required>
                                     <label for="cardNumber" class="form-label">Card number</label>
                                     <div class="card-logos">
-                                        <img src="/assets/logos/visa.svg" alt="Visa" class="card-logo visa">
-                                        <img src="/assets/logos/mc.svg" alt="Mastercard" class="card-logo mastercard">
-                                        <img src="/assets/logos/amex.svg" alt="Amex" class="card-logo amex">
+                                        <img src="/assets/logos/card/visa.svg" alt="Visa" class="card-logo visa">
+                                        <img src="/assets/logos/card/mc.svg" alt="Mastercard" class="card-logo mastercard">
+                                        <img src="/assets/logos/card/amex.svg" alt="Amex" class="card-logo amex">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -143,15 +146,13 @@
                                 </svg>
                             </span>
                         </a>
+                        <img src="assets/logos/pci-dss.svg" alt="PCI DSS Compliant" class="pci-logo">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="js/script.js"></script>
-    <script type="module" src="js/orgNameFormatter.js"></script>
-    <script src="js/footer-align.js"></script>
     <script src="js/card-validation.js"></script>
-    <script src="js/card-payment-handler.js"></script>
 </body>
 </html>

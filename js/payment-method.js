@@ -1,8 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const primaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-primary").trim();
   const paymentOptions = document.querySelectorAll(".payment-methods-option");
   const payButton = document.querySelector(".btn-pay");
+  const methodsWithSubOptions = ["wallet", "bnpl", "fpx", "duitnow", "card", "duitnowqr"];
   let selectedOption = null;
   let selectedSubOption = null;
+
+  const processingOverlay = document.createElement("div");
+  processingOverlay.className = "processing-overlay";
+  document.body.appendChild(processingOverlay);
 
   function closeAllAccordions() {
     paymentOptions.forEach((option) => {
@@ -10,10 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const btn = option.querySelector(".payment-methods-btn");
       if (content) {
         content.classList.remove("active");
-        content.style.pointerEvents = "none";
-        content
-          .querySelectorAll("*")
-          .forEach((el) => (el.style.pointerEvents = "none"));
       }
       btn.classList.remove("active");
       btn.style.color = "";
@@ -33,14 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         radio.checked = false;
         updateSubOptionState(radio.closest(".payment-option"), false);
       });
-
-    closeAllCustomSelects();
-  }
-
-  function closeAllCustomSelects() {
-    if (typeof window.closeAllCustomSelects === "function") {
-      window.closeAllCustomSelects();
-    }
   }
 
   document.addEventListener("click", function (event) {
@@ -76,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const paymentMethod = selectedOption.querySelector(
         'input[type="radio"]'
       ).value;
-      if (paymentMethod === "wallet" || paymentMethod === "bnpl" || paymentMethod === "fpx" || paymentMethod === "duitnow" || paymentMethod === "card" || paymentMethod === "duitnowqr") {
+      if (methodsWithSubOptions.includes(paymentMethod)) {
         payButton.disabled = !selectedSubOption;
       } else {
         payButton.disabled = false;
@@ -88,28 +82,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateButtonState(btn, isSelected) {
     btn.classList.toggle("active", isSelected);
-    btn.style.color = isSelected ? "#0F50FF" : "";
+    btn.style.color = isSelected ? primaryColor : "";
     const icon = btn.querySelector(".icon");
     if (icon) {
-      icon.style.color = isSelected ? "#0F50FF" : "";
+      icon.style.color = isSelected ? primaryColor : "";
     }
-
   }
 
   function updateSubOptionState(label, isSelected) {
-    label.style.color = isSelected ? "#0F50FF" : "";
+    label.style.color = isSelected ? primaryColor : "";
   }
 
-  function updateCheckMark(label, isSelected) {
-    label.style.boxShadow = isSelected ? "inset 0 0 0 2px #0F50FF" : "";
-    label.style.borderColor = isSelected ? "#0F50FF" : "";
+  function getRedirectUrl() {
+    if (!selectedOption) return "receipt.html";
+
+    const paymentMethod = selectedOption.querySelector('input[type="radio"]').value;
+    if (paymentMethod === "card") return "bill-card.html";
+    if (paymentMethod === "qr") return "bill-qr.html";
+    if (paymentMethod === "duitnowqr" && selectedSubOption && selectedSubOption.value === "duitnowqr") return "bill-qr.html";
+    return "receipt.html";
   }
 
   function simulateProcessing() {
-    if (!payButton) {
-      return;
-    }
+    if (!payButton) return;
 
+    const redirectUrl = getRedirectUrl();
     const btnText = payButton.querySelector(".btn-text");
     const lockIcon = payButton.querySelector(".lock-icon");
     const processingIcon = payButton.querySelector(".processing-icon");
@@ -117,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     payButton.classList.add("processing");
     payButton.disabled = true;
     btnText.textContent = "Processing...";
+    processingOverlay.classList.add("active");
 
     lockIcon.style.opacity = "0";
     lockIcon.style.transform = "scale(0)";
@@ -134,22 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
       lockIcon.style.opacity = "1";
       lockIcon.style.transform = "scale(1)";
       payButton.disabled = false;
-      btnText.textContent = "Continue to payment page";
-
-      let redirectUrl = "receipt.html";
-
-      if (selectedOption) {
-        const paymentMethod = selectedOption.querySelector(
-          'input[type="radio"]'
-        ).value;
-        if (paymentMethod === "card") {
-          redirectUrl = "bill-card.html";
-        } else if (paymentMethod === "qr") {
-          redirectUrl = "bill-qr.html";
-        } else if (paymentMethod === "duitnowqr" && selectedSubOption && selectedSubOption.value === "duitnowqr") {
-          redirectUrl = "bill-qr.html";
-        }
-      }
+      btnText.textContent = "Continue to the payment page";
+      processingOverlay.classList.remove("active");
 
       window.location.href = redirectUrl;
     }, 3000);
@@ -163,19 +147,12 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      closeAllCustomSelects();
       resetAllOptions();
 
       if (selectedOption !== option) {
-        const radio = option.querySelector('input[type="radio"]');
         radio.checked = true;
         if (content) {
           content.classList.add("active");
-          content.style.pointerEvents = "auto";
-          content
-            .querySelectorAll("*")
-            .forEach((el) => (el.style.pointerEvents = "auto"));
-          void content.offsetWidth;
         }
         selectedOption = option;
         selectedSubOption = null;
@@ -184,10 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedSubOption = null;
         if (content) {
           content.classList.remove("active");
-          content.style.pointerEvents = "none";
-          content
-            .querySelectorAll("*")
-            .forEach((el) => (el.style.pointerEvents = "none"));
         }
       }
 
@@ -195,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updatePayButton();
     });
 
-    if (radio.value === "wallet" || radio.value === "bnpl" || radio.value === "fpx" || radio.value === "duitnow" || radio.value === "card" || radio.value === "duitnowqr") {
+    if (methodsWithSubOptions.includes(radio.value)) {
       const subOptions = option.querySelectorAll(
         '.payment-option input[type="radio"]'
       );

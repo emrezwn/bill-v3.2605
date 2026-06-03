@@ -306,24 +306,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 processingIcon.style.animation = 'fadeInScaleOut 0.3s ease-in-out forwards, spin 1s linear infinite 0.3s';
             }, 300);
             
-            // Simulate processing time (9 seconds)
             setTimeout(() => {
                 this.classList.remove('processing');
-                
-                // Stop animations
                 processingIcon.style.animation = 'none';
                 processingIcon.style.display = 'none';
-                
-                // Fade in and scale out the lock icon
                 lockIcon.style.opacity = '1';
                 lockIcon.style.transform = 'scale(1)';
-                
-                // Deactivate the overlay
                 processingOverlay.classList.remove('active');
                 document.body.classList.remove('processing');
-                
-                // Handle successful payment here
-            }, 9000);
+
+                window.location.href = 'receipt.html';
+            }, 3000);
         }
     });
 

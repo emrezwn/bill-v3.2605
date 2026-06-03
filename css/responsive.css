@@ -95,7 +95,7 @@
     margin: 24px 0;
   }
   .details .content-details .content-details-header {
-    border-top: 1px solid #E4E4E4;
+    border-top: 1px solid var(--color-line-horizontal);
   }
   .footer {
     position: unset;
@@ -213,5 +213,3 @@
     align-self: flex-end;
   }
 }
-
-/*# sourceMappingURL=responsive.css.map */

@@ -5,17 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Securely pay your bill through BILLPLZ's bill page. Multiple payment options available including credit card, online banking, and digital wallets.">
-  <meta name="keywords" content="bill payment, online payment, secure payment, fintech, BILLPLZ">
-  <title>Payment page - SKILLFORGE MSIA SDN BHD - Secured by BILLPLZ</title>
+    content="Securely pay your bill through Billplz's bill page. Multiple payment options available including credit card, online banking, and digital wallets.">
+  <meta name="keywords" content="bill payment, online payment, secure payment, fintech, Billplz">
+  <title>Payment page - SKILLFORGE MSIA SDN BHD - Secured by Billplz</title>
   <!-- Styles -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/payment-method.css">
-  <link rel="stylesheet" href="css/select.css">
-  <link rel="stylesheet" href="css/accordion.css">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100,300,400,500,600,700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,9 +54,14 @@
         <div class="section-content-a">
           <!-- Organization -->
           <div class="header-a">
-            <div class="logo-org"><img src="assets/logos/logo.png" alt="Company logo"></div>
+            <div class="logo-org"><img src="assets/logos/org.svg" alt="Company logo"></div>
             <div class="org"><span class="org-name">Billplz Sdn Bhd</span><span
                 class="org-regid">1023853P</span></div>
+          </div>
+          <!-- Invoice ID & date -->
+          <div class="bill-id-bar">
+            <span class="bill-id-content">Invoice no: <span class="roboto-mono-normal bill-id">212452318</span></span>
+            <span>22 April 2026</span>
           </div>
           <!-- Collection name, description and amount -->
           <div class="content-a" aria-labelledby="payment-amount">
@@ -69,17 +72,12 @@
           </div>
           <div class="details">
             <button class="btn-details" aria-expanded="false" aria-controls="content-details">
-              <span>View details</span>
+              <span>Payer details</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg>
             </button>
             <div class="content-details" id="content-id" aria-labelledby="details-header">
-              <!-- Invoice number & date -->
-              <div class="content-details-header" id="details-header">
-                <span class="bill-id-content">Invoice no: <span class="roboto-mono-normal bill-id">212452318</span></span>
-                <span>22 April 2026</span>
-              </div>
               <!-- Bill details -->
               <table>
                 <tr>
@@ -144,79 +142,320 @@
               <!-- FPX -->
               <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-onlineBanking" role="radio" aria-expanded="false" aria-controls="onlineBanking-content">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="0" aria-hidden="true" class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="m11.1 15.4-1.6-2.2c-.2-.3-.7-.8-.7-1.2s.4-.9.7-1.2l1.6-2.2c0-.1.2-.2.2-.2V5.8c0-2.1-.9-2.6-1.9-1.2L5.9 9.4c-.5.7-1.4 1.7-1.4 2.6s.9 1.9 1.4 2.6l3.5 4.8c1.1 1.4 1.9.9 1.9-1.2v-2.6l-.2-.2M18.1 9.4l-3.5-4.8c-1.1-1.4-1.9-.9-1.9 1.2v2.6l.2.2 1.6 2.2c.2.3.7.8.7 1.2s-.4.9-.7 1.2l-1.6 2.2c0 .1-.2.2-.2.2v2.6c0 2.1.9 2.6 1.9 1.2l3.5-4.8c.5-.7 1.4-1.7 1.4-2.6s-.9-1.9-1.4-2.6" />
-                  </svg>
-                  <span class="payment-name" id="online-banking-label">Online Banking</span>
+                  <img src="assets/logos/pm-logo-fpx.svg" alt="FPX" class="icon icon-big">
+                  <span class="payment-name-group">
+                    <span class="payment-name" id="online-banking-label">Online Banking</span>
+                    <span class="payment-desc">Pay by bank transfer</span>
+                  </span>
                   <input type="radio" name="paymentMethod" value="fpx">
                   <span class="checkmark"></span>
                 </button>
                 <div class="payment-method-content">
-                  <!-- FPX content here -->
-                  <div class="form-group">
-                    <label for="accountholderType" class="form-label-custom">Account holder type</label>
-                    <select id="accountholderType" name="account-type" class="form-input"
-                      aria-label="Select account holder type" required>
-                      <option class="custom-option" value="personal online">Personal (B2C)</option>
-                      <option class="custom-option"  value="business online">Business (B2B)</option>
-                    </select>
-                  </div>
-                  <div class="form-group selected-bank" style="margin-top: 16px">
-                    <label for="bankType" class="form-label-custom">Bank</label>
-                    <select id="bankType" name="bank-select" class="form-input" aria-label="Select bank" required>
-                      <!-- B2C Banks -->
-                      <option class="custom-option" value="maybank online" data-category="fpx" data-method="maybank" data-type="b2c" data-logo="assets/logos/bank/pm-logo-maybank.svg">Maybank</option>
-                      <option class="custom-option" value="cimb online" data-category="fpx" data-method="cimb" data-type="b2c" data-logo="assets/logos/bank/pm-logo-cimb.svg">CIMB Bank</option>
-                      <option class="custom-option" value="rhb offline" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/bank/pm-logo-rhb.svg">RHB Bank</option>
-                      <option class="custom-option" value="pbe online" data-category="fpx" data-method="pbe" data-type="b2c" data-logo="assets/logos/bank/pm-logo-pbe.svg">Public Bank</option>
-                      <option class="custom-option" value="hlb online" data-category="fpx" data-method="hlb" data-type="b2c" data-logo="assets/logos/bank/pm-logo-hlb.svg">Hong Leong Bank</option>
-                      <option class="custom-option" value="affin online" data-category="fpx" data-method="affin" data-type="b2c" data-logo="assets/logos/bank/pm-logo-affin.svg">Affin Bank</option>
-                      <option class="custom-option" value="agro online" data-category="fpx" data-method="agro"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-agro.svg">AgroBank</option>
-                      <option class="custom-option" value="alliance online" data-category="fpx" data-method="alliance" data-type="b2c" data-logo="assets/logos/bank/pm-logo-alliance.svg">Alliance Bank</option>
-                      <option class="custom-option" value="ambank online" data-category="fpx" data-method="ambank"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-ambank.svg">AmBank</option>
-                      <option class="custom-option" value="bankislam online" data-category="fpx" data-method="bankislan" data-type="b2c" data-logo="assets/logos/bank/pm-logo-bankislam.svg">Bank Islam</option>
-                      <option class="custom-option" value="muamalat online" data-category="fpx" data-method="muamalat"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-bankmuamalat.svg">Bank Muamalat</option>
-                      <option class="custom-option" value="boc online" data-category="fpx" data-method="boc"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-boc.svg">Bank of China</option>
-                      <option class="custom-option" value="bankrakyat online" data-category="fpx" data-method="bankrakyat"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-bankrakyat.svg">Bank Rakyat</option>
-                      <option class="custom-option" value="bsn online" data-category="fpx" data-method="bsn"  data-type="b2c" data-logo="assets/logos/bank/pm-logo-bsn.svg">Bank Simpanan Nasional</option>
-                      <option class="custom-option" value="hsbc online" data-category="fpx" data-method="hsbc" data-type="b2c" data-logo="assets/logos/bank/pm-logo-hsbc.svg">HSBC</option>
-                      <option class="custom-option" value="kfh online" data-category="fpx" data-method="kfh" data-type="b2c" data-logo="assets/logos/bank/pm-logo-kfh.svg">Kuwait Finance House</option>
-                      <option class="custom-option" value="ocbc online" data-category="fpx" data-method="ocbc" data-type="b2c" data-logo="assets/logos/bank/pm-logo-ocbc.svg">OCBC Bank</span></option>
-                      <option class="custom-option" value="sc online" data-category="fpx" data-method="sc" data-type="b2c" data-logo="assets/logos/bank/pm-logo-sc.svg">Standard Chartered</option>
-                      <option class="custom-option" value="uob online" data-category="fpx" data-method="uob" data-type="b2c" data-logo="assets/logos/bank/pm-logo-uob.svg">United Overseas Bank</option>
-                      <!-- B2B Banks -->
-                      <option class="custom-option" value="citi_b2b online" data-category="fpx" data-method="citi" data-type="b2b" data-logo="assets/logos/bank/pm-logo-citi.svg">Citi Bank</option>
-                      <option class="custom-option" value="maybank_b2b online" data-category="fpx" data-method="maybank" data-type="b2b" data-logo="assets/logos/bank/pm-logo-maybank.svg">Maybank</option>
-                      <option class="custom-option" value="cimb_b2b online" data-category="fpx" data-method="cimb" data-type="b2b" data-logo="assets/logos/bank/pm-logo-cimb.svg">CIMB Bank</option>
-                      <option class="custom-option" value="sc_b2b online" data-category="fpx" data-method="sc" data-type="b2b" data-logo="assets/logos/bank/pm-logo-sc.svg">Standard Chartered</option>
-                      <option class="custom-option" value="rhb_b2b online" data-category="fpx" data-method="rhb" data-type="b2b" data-logo="assets/logos/bank/pm-logo-rhb.svg">RHB Bank</option>
-                      <option class="custom-option" value="pbe_b2b online" data-category="fpx" data-method="pbe" data-type="b2b" data-logo="assets/logos/bank/pm-logo-pbe.svg">Public Bank</option>
-                      <option class="custom-option" value="pbee_b2b online" data-category="fpx" data-method="pbee" data-type="b2b" data-logo="assets/logos/bank/pm-logo-pbe.svg">Public Bank Enterprise</option>
-                      <option class="custom-option" value="hsbc_b2b online" data-category="fpx" data-method="hsbc" data-type="b2b" data-logo="assets/logos/bank/pm-logo-hsbc.svg">HSBC</option>
-                      <option class="custom-option" value="uob_b2b online" data-category="fpx" data-method="uob" data-type="b2b" data-logo="assets/logos/bank/pm-logo-uob.svg">United Overseas Bank</option>
-                      <option class="custom-option" value="hlb_b2b online" data-category="fpx" data-method="hlb" data-type="b2b" data-logo="assets/logos/bank/pm-logo-hlb.svg">Hong Leong Bank</option>
-                      <option class="custom-option" value="kfh_b2b online" data-category="fpx" data-method="kfh" data-type="b2b" data-logo="assets/logos/bank/pm-logo-kfh.svg">Kuwait Finance House</option>
-                      <option class="custom-option" value="bnp_b2b online" data-category="fpx" data-method="bnp" data-type="b2b" data-logo="assets/logos/bank/pm-logo-bnp.svg">BNP Paribas Bank</option>
-                      <option class="custom-option" value="dbb_b2b online" data-category="fpx" data-method="deutsche" data-type="b2b" data-logo="assets/logos/bank/pm-logo-deutsche.svg">Deutsche Bank</option>
-                      <option class="custom-option" value="ocbc_b2b online" data-category="fpx" data-method="ocbc" data-type="b2b" data-logo="assets/logos/bank/pm-logo-ocbc.svg">OCBC Bank</span></option>
-                      <option class="custom-option" value="affin_b2b online" data-category="fpx" data-method="affin" data-type="b2b" data-logo="assets/logos/bank/pm-logo-affin.svg">Affin Bank</option>
-                      <option class="custom-option" value="agro_b2b online" data-category="fpx" data-method="agro" data-type="b2b" data-logo="assets/logos/bank/pm-logo-agro.svg">AgroBank</option>
-                      <option class="custom-option" value="alliance_b2b online" data-category="fpx" data-method="alliance" data-type="b2b" data-logo="assets/logos/bank/pm-logo-alliance.svg">Alliance Bank</option>
-                      <option class="custom-option" value="ambank_b2b online" data-category="fpx" data-method="ambank" data-type="b2b" data-logo="assets/logos/bank/pm-logo-ambank.svg">AmBank</option>
-                      <option class="custom-option" value="bankislam_b2b online" data-category="fpx" data-method="bankislam" data-type="b2b" data-logo="assets/logos/bank/pm-logo-bankislam.svg">Bank Islam</option>
-                      <option class="custom-option" value="muamalat_b2b online" data-category="fpx" data-method="muamalat" data-type="b2b" data-logo="assets/logos/bank/pm-logo-bankmuamalat.svg">Bank Muamalat</option>
-                      <option class="custom-option" value="bankrakyat_b2b online" data-category="fpx" data-method="bankrakyat" data-type="b2b" data-logo="assets/logos/bank/pm-logo-bankrakyat.svg">Bank Rakyat</option>
-                    </select>
+                  <div class="payment-form" data-tab-content="fpx">
+                    <!-- Account holder type tabs -->
+                    <div class="account-type-tabs">
+                      <button class="account-type-tab active" data-type="b2c">Personal</button>
+                      <button class="account-type-tab" data-type="b2b">Corporate</button>
+                    </div>
+                    <!-- Bank list -->
+                    <div class="form-group">
+                      <div class="payment-list bank-list">
+                        <!-- B2C Banks -->
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-maybank.svg" alt="Maybank2u" class="logo">
+                            <span class="payment-name">Maybank2u</span>
+                            <input type="radio" name="bankSelect" value="maybank" data-category="fpx" data-method="maybank" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-cimb.svg" alt="CIMB Clicks" class="logo">
+                            <span class="payment-name">CIMB Clicks</span>
+                            <input type="radio" name="bankSelect" value="cimb" data-category="fpx" data-method="cimb" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-rhb.svg" alt="RHB Now" class="logo">
+                            <span class="payment-name">RHB Now</span>
+                            <input type="radio" name="bankSelect" value="rhb" data-category="fpx" data-method="rhb" data-type="b2c" disabled>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-pbe.svg" alt="PBe Online" class="logo">
+                            <span class="payment-name">PBe Online</span>
+                            <input type="radio" name="bankSelect" value="pbe" data-category="fpx" data-method="pbe" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-hlb.svg" alt="HLB Connect" class="logo">
+                            <span class="payment-name">HLB Connect</span>
+                            <input type="radio" name="bankSelect" value="hlb" data-category="fpx" data-method="hlb" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-affin.svg" alt="Affin Online" class="logo">
+                            <span class="payment-name">Affin Online</span>
+                            <input type="radio" name="bankSelect" value="affin" data-category="fpx" data-method="affin" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-agro.svg" alt="AGRONet" class="logo">
+                            <span class="payment-name">AGRONet</span>
+                            <input type="radio" name="bankSelect" value="agro" data-category="fpx" data-method="agro" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-alliance.svg" alt="Alliance Online" class="logo">
+                            <span class="payment-name">Alliance Online</span>
+                            <input type="radio" name="bankSelect" value="alliance" data-category="fpx" data-method="alliance" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-ambank.svg" alt="AmOnline" class="logo">
+                            <span class="payment-name">AmOnline</span>
+                            <input type="radio" name="bankSelect" value="ambank" data-category="fpx" data-method="ambank" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankislam.svg" alt="Bank Islam GO" class="logo">
+                            <span class="payment-name">Bank Islam GO</span>
+                            <input type="radio" name="bankSelect" value="bankislam" data-category="fpx" data-method="bankislam" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankmuamalat.svg" alt="i-Muamalat" class="logo">
+                            <span class="payment-name">i-Muamalat</span>
+                            <input type="radio" name="bankSelect" value="muamalat" data-category="fpx" data-method="muamalat" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-boc.svg" alt="Bank of China" class="logo">
+                            <span class="payment-name">Bank of China</span>
+                            <input type="radio" name="bankSelect" value="boc" data-category="fpx" data-method="boc" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankrakyat.svg" alt="i-Rakyat" class="logo">
+                            <span class="payment-name">i-Rakyat</span>
+                            <input type="radio" name="bankSelect" value="bankrakyat" data-category="fpx" data-method="bankrakyat" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bsn.svg" alt="myBSN" class="logo">
+                            <span class="payment-name">myBSN</span>
+                            <input type="radio" name="bankSelect" value="bsn" data-category="fpx" data-method="bsn" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-hsbc.svg" alt="HSBC Online" class="logo">
+                            <span class="payment-name">HSBC Online</span>
+                            <input type="radio" name="bankSelect" value="hsbc" data-category="fpx" data-method="hsbc" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-kfh.svg" alt="KFH Online" class="logo">
+                            <span class="payment-name">KFH Online</span>
+                            <input type="radio" name="bankSelect" value="kfh" data-category="fpx" data-method="kfh" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-ocbc.svg" alt="OCBC Online" class="logo">
+                            <span class="payment-name">OCBC Online</span>
+                            <input type="radio" name="bankSelect" value="ocbc" data-category="fpx" data-method="ocbc" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-sc.svg" alt="SC Online" class="logo">
+                            <span class="payment-name">SC Online</span>
+                            <input type="radio" name="bankSelect" value="sc" data-category="fpx" data-method="sc" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2c" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-uob.svg" alt="UOB Online" class="logo">
+                            <span class="payment-name">UOB Online</span>
+                            <input type="radio" name="bankSelect" value="uob" data-category="fpx" data-method="uob" data-type="b2c">
+                            <span class="checkmark"></span>
+                        </label>
+                        <!-- B2B Banks -->
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-maybank.svg" alt="Maybank2e" class="logo">
+                            <span class="payment-name">Maybank2e</span>
+                            <input type="radio" name="bankSelect" value="maybank_b2b" data-category="fpx" data-method="maybank" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-cimb.svg" alt="BizChannel@CIMB" class="logo">
+                            <span class="payment-name">BizChannel@CIMB</span>
+                            <input type="radio" name="bankSelect" value="cimb_b2b" data-category="fpx" data-method="cimb" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-rhb.svg" alt="RHB Reflex" class="logo">
+                            <span class="payment-name">RHB Reflex</span>
+                            <input type="radio" name="bankSelect" value="rhb_b2b" data-category="fpx" data-method="rhb" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="offline">
+                            <img src="assets/logos/bank/pm-logo-pbe.svg" alt="PBe Enterprise" class="logo">
+                            <span class="payment-name">PBe Enterprise</span>
+                            <span class="bank-status">OFFLINE</span>
+                            <input type="radio" name="bankSelect" value="pbee_b2b" data-category="fpx" data-method="pbee" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-hlb.svg" alt="HLB ConnectFirst" class="logo">
+                            <span class="payment-name">HLB ConnectFirst</span>
+                            <input type="radio" name="bankSelect" value="hlb_b2b" data-category="fpx" data-method="hlb" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-affin.svg" alt="Affin BizNet" class="logo">
+                            <span class="payment-name">Affin BizNet</span>
+                            <input type="radio" name="bankSelect" value="affin_b2b" data-category="fpx" data-method="affin" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-agro.svg" alt="AGRONetBiz" class="logo">
+                            <span class="payment-name">AGRONetBiz</span>
+                            <input type="radio" name="bankSelect" value="agro_b2b" data-category="fpx" data-method="agro" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-alliance.svg" alt="Alliance BizSmart" class="logo">
+                            <span class="payment-name">Alliance BizSmart</span>
+                            <input type="radio" name="bankSelect" value="alliance_b2b" data-category="fpx" data-method="alliance" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-ambank.svg" alt="AmAccess Biz" class="logo">
+                            <span class="payment-name">AmAccess Biz</span>
+                            <input type="radio" name="bankSelect" value="ambank_b2b" data-category="fpx" data-method="ambank" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankislam.svg" alt="Bank Islam eBanker" class="logo">
+                            <span class="payment-name">Bank Islam eBanker</span>
+                            <input type="radio" name="bankSelect" value="bankislam_b2b" data-category="fpx" data-method="bankislam" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankmuamalat.svg" alt="i-Muamalat Biz" class="logo">
+                            <span class="payment-name">i-Muamalat Biz</span>
+                            <input type="radio" name="bankSelect" value="muamalat_b2b" data-category="fpx" data-method="muamalat" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bankrakyat.svg" alt="i-Rakyat Biz" class="logo">
+                            <span class="payment-name">i-Rakyat Biz</span>
+                            <input type="radio" name="bankSelect" value="bankrakyat_b2b" data-category="fpx" data-method="bankrakyat" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-sc.svg" alt="SC BizOnline" class="logo">
+                            <span class="payment-name">SC BizOnline</span>
+                            <input type="radio" name="bankSelect" value="sc_b2b" data-category="fpx" data-method="sc" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-hsbc.svg" alt="HSBCnet" class="logo">
+                            <span class="payment-name">HSBCnet</span>
+                            <input type="radio" name="bankSelect" value="hsbc_b2b" data-category="fpx" data-method="hsbc" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-uob.svg" alt="UOB BIBPlus" class="logo">
+                            <span class="payment-name">UOB BIBPlus</span>
+                            <input type="radio" name="bankSelect" value="uob_b2b" data-category="fpx" data-method="uob" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-kfh.svg" alt="KFH Biz" class="logo">
+                            <span class="payment-name">KFH Biz</span>
+                            <input type="radio" name="bankSelect" value="kfh_b2b" data-category="fpx" data-method="kfh" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-bnp.svg" alt="BNP Paribas Bank" class="logo">
+                            <span class="payment-name">BNP Paribas Bank</span>
+                            <input type="radio" name="bankSelect" value="bnp_b2b" data-category="fpx" data-method="bnp" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-deutsche.svg" alt="Deutsche Bank" class="logo">
+                            <span class="payment-name">Deutsche Bank</span>
+                            <input type="radio" name="bankSelect" value="dbb_b2b" data-category="fpx" data-method="deutsche" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-ocbc.svg" alt="OCBC Velocity" class="logo">
+                            <span class="payment-name">OCBC Velocity</span>
+                            <input type="radio" name="bankSelect" value="ocbc_b2b" data-category="fpx" data-method="ocbc" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="b2b" data-status="online">
+                            <img src="assets/logos/bank/pm-logo-citi.svg" alt="CitiDirect" class="logo">
+                            <span class="payment-name">CitiDirect</span>
+                            <input type="radio" name="bankSelect" value="citi_b2b" data-category="fpx" data-method="citi" data-type="b2b">
+                            <span class="checkmark"></span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- PAYMENT METHODS — enable/disable by uncommenting the block for each method.
-                   The JS null-guards handle missing sections automatically — no JS changes needed.
-                   Available methods: DuitNow, Wallet, QR, Buy Now Pay Later, Cash, Simulator. -->
+              <!-- Wallet -->
+              <div class="payment-methods-option">
+                <button class="payment-methods-btn" id="btn-duitnowqr" role="radio" aria-checked="false"
+                  aria-labelledby="duitnowqr-label">
+                  <img src="assets/logos/wallet/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="icon icon-big">
+                  <span class="payment-name-group">
+                    <span class="payment-name" id="duitnowqr-label">Wallet</span>
+                    <span class="payment-desc">Scan QR code to pay via a wallet/bank app</span>
+                  </span>
+                  <input type="radio" name="paymentMethod" value="duitnowqr" data-category="duitnowqr">
+                  <span class="checkmark"></span>
+                </button>
+                <div class="payment-method-content">
+                  <div class="payment-form" data-tab-content="duitnowqr">
+                    <div class="form-group">
+                      <div class="payment-list">
+                        <label class="payment-option accordion" aria-label="Select DuitNow QR">
+                            <img src="assets/logos/wallet/pm-logo-duitnow-qr.svg" alt="DuitNow QR" class="logo">
+                            <span class="payment-name">DuitNow QR</span>
+                            <input type="radio" name="walletSelect" value="duitnowqr" data-category="duitnowqr" data-method="duitnowqr">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion" aria-label="Select GrabPay">
+                            <img src="assets/logos/wallet/pm-logo-grabpay.svg" alt="GrabPay" class="logo">
+                            <span class="payment-name">GrabPay</span>
+                            <input type="radio" name="walletSelect" value="grabpay" data-category="duitnowqr" data-method="grabpay">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion" aria-label="Select Boost Wallet">
+                            <img src="assets/logos/wallet/pm-logo-boost.svg" alt="Boost Wallet" class="logo">
+                            <span class="payment-name">Boost</span>
+                            <input type="radio" name="walletSelect" value="boost" data-category="duitnowqr" data-method="boost">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion" aria-label="Select Touch 'n Go eWallet">
+                            <img src="assets/logos/wallet/pm-logo-tng.svg" alt="Touch 'n Go eWallet" class="logo">
+                            <span class="payment-name">Touch 'n Go eWallet</span>
+                            <input type="radio" name="walletSelect" value="tng" data-category="duitnowqr" data-method="tng">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion" aria-label="Select ShopeePay">
+                            <img src="assets/logos/wallet/pm-logo-shopee.svg" alt="ShopeePay" class="logo">
+                            <span class="payment-name">ShopeePay</span>
+                            <input type="radio" name="walletSelect" value="shopeepay" data-category="duitnowqr" data-method="shopeepay">
+                            <span class="checkmark"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <!-- DuitNow -->
+              <!-- DuitNow Pay -->
               <!-- <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-duitnow" role="radio" aria-expanded="false" aria-controls="duitnow-content">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="0" aria-hidden="true" class="icon">
@@ -231,30 +470,71 @@
                   <span class="checkmark"></span>
                 </button>
                 <div class="payment-method-content">
-
-                  <div class="form-group">
-                    <label for="accountholderType" class="form-label-custom">Account holder type</label>
-                    <select id="accountholderType" name="account-type" class="form-input"
-                      aria-label="Select account holder type" required>
-                      <option class="custom-option" value="personal online">Corporate</option>
-                      <option class="custom-option"  value="business online">Business (B2B)</option>
-                    </select>
-                  </div>
-                  <div class="form-group selected-bank" style="margin-top: 16px">
-                    <label for="bankType" class="form-label-custom">Bank</label>
-                    <select id="bankType" name="bank-select" class="form-input" aria-label="Select bank" required>
-
-                      <option class="custom-option" value="maybank online" data-category="fpx" data-method="maybank" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-boost.svg">Boost</option>
-                      <option class="custom-option" value="cimb online" data-category="fpx" data-method="cimb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-kayaaku.svg">Kayaaku</option>
-                      <option class="custom-option" value="cimb online" data-category="fpx" data-method="cimb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-icbc.svg">ICBC</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-ipay88.svg">iPay88</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-mobilityone.svg">Mobility One</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-ccbm.svg">China Construction Bank</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-ryt.svg">Ryt Bank</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-jpmc.svg">JP Morgan Chase</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-mizuho.svg">Mizuho Bank</option>
-                      <option class="custom-option" value="rhb online" data-category="fpx" data-method="rhb" data-type="b2c" data-logo="assets/logos/duitnow/pm-logo-sumitomo.svg">Sumitomo Mitsui</option>
-                    </select>
+                  <div class="payment-form" data-tab-content="duitnow">
+                    <div class="form-group">
+                      <div class="payment-list bank-list">
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-boost.svg" alt="Boost" class="logo">
+                            <span class="payment-name">Boost</span>
+                            <input type="radio" name="duitnowSelect" value="boost" data-category="duitnow" data-method="boost" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-kayaaku.svg" alt="Kayaaku" class="logo">
+                            <span class="payment-name">Kayaaku</span>
+                            <input type="radio" name="duitnowSelect" value="kayaaku" data-category="duitnow" data-method="kayaaku" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-icbc.svg" alt="ICBC" class="logo">
+                            <span class="payment-name">ICBC</span>
+                            <input type="radio" name="duitnowSelect" value="icbc" data-category="duitnow" data-method="icbc" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-ipay88.svg" alt="iPay88" class="logo">
+                            <span class="payment-name">iPay88</span>
+                            <input type="radio" name="duitnowSelect" value="ipay88" data-category="duitnow" data-method="ipay88" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-mobilityone.svg" alt="Mobility One" class="logo">
+                            <span class="payment-name">Mobility One</span>
+                            <input type="radio" name="duitnowSelect" value="mobilityone" data-category="duitnow" data-method="mobilityone" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-ccbm.svg" alt="China Construction Bank" class="logo">
+                            <span class="payment-name">China Construction Bank</span>
+                            <input type="radio" name="duitnowSelect" value="ccbm" data-category="duitnow" data-method="ccbm" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-ryt.svg" alt="Ryt Bank" class="logo">
+                            <span class="payment-name">Ryt Bank</span>
+                            <input type="radio" name="duitnowSelect" value="ryt" data-category="duitnow" data-method="ryt" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-jpmc.svg" alt="JP Morgan Chase" class="logo">
+                            <span class="payment-name">JP Morgan Chase</span>
+                            <input type="radio" name="duitnowSelect" value="jpmc" data-category="duitnow" data-method="jpmc" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-mizuho.svg" alt="Mizuho Bank" class="logo">
+                            <span class="payment-name">Mizuho Bank</span>
+                            <input type="radio" name="duitnowSelect" value="mizuho" data-category="duitnow" data-method="mizuho" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="payment-option accordion bank-option" data-type="corporate" data-status="online">
+                            <img src="assets/logos/duitnow/pm-logo-sumitomo.svg" alt="Sumitomo Mitsui" class="logo">
+                            <span class="payment-name">Sumitomo Mitsui</span>
+                            <input type="radio" name="duitnowSelect" value="sumitomo" data-category="duitnow" data-method="sumitomo" data-type="corporate">
+                            <span class="checkmark"></span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div> -->
@@ -263,92 +543,50 @@
               <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-card" role="radio" aria-checked="false"
                   aria-labelledby="card-label">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"
-                    class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
-                  </svg>
-                  <span class="payment-name" id="card-label">Card</span>
+                  <div class="icon-stack">
+                    <img src="assets/logos/card/visa.svg" alt="Visa" class="icon-stack-item">
+                    <img src="assets/logos/card/mc.svg" alt="Mastercard" class="icon-stack-item">
+                  </div>
+                  <span class="payment-name-group">
+                    <span class="payment-name" id="card-label">Card</span>
+                    <span class="payment-desc">Pay with a credit, debit or prepaid card</span>
+                  </span>
                   <input type="radio" name="paymentMethod" value="card" data-category="card">
                   <span class="checkmark"></span>
                 </button>
-              </div>
-
-              <!-- WALLET -->
-              <!-- <div class="payment-methods-option">
-                <button class="payment-methods-btn" id="btn-wallet" role="radio" aria-expanded="false"
-                  aria-controls="wallet-content">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5px" aria-hidden="true"
-                    class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M19.6 15.9v1.4m-17.1 0V6.7c0-1.2 1-2.1 2.1-2.1h12.8c1.2 0 2.1 1 2.1 2.1v1.4m-17 9.2c0 1.2 1 2.1 2.1 2.1h12.8c1.2 0 2.1-1 2.1-2.1" />
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M13.9 14.8V9.2c0-.6.4-1.1 1-1.1h5.7c.5 0 1 .5 1 1.1v5.6m-7.7 0c0 .6.4 1.1 1 1.1h5.7c.5 0 1-.5 1-1.1" />
-                    <circle stroke-linecap="round" stroke-linejoin="round" cx="17.7" cy="12" r="1.5" />
-                  </svg>
-                  <span class="payment-name" id="wallet-label">Wallet</span>
-                  <input type="radio" name="paymentMethod" value="wallet" aria-label="Select wallet payment method">
-                  <span class="checkmark"></span>
-                </button>
                 <div class="payment-method-content">
-                  <div class="payment-form" data-tab-content="wallet">
+                  <div class="payment-form" data-tab-content="card">
                     <div class="form-group">
                       <div class="payment-list">
-                        <label class="payment-option accordion" aria-label="Select GrabPay">
-                            <img src="assets/logos/pm-logo-grabpay.svg" alt="GrabPay" class="logo">
-                            <span class="payment-name">GrabPay</span>
-                            <input type="radio" name="paymentMethod" value="grabpay" data-category="wallet" data-method="grabpay">
+                        <label class="payment-option accordion" aria-label="Select Visa / Mastercard">
+                            <img src="assets/logos/card/pm-logo-card-visa-mc.svg" alt="Visa / Mastercard" class="logo logo-wide">
+                            <span class="payment-name">Visa / Mastercard</span>
+                            <input type="radio" name="cardSelect" value="visa-mc" data-category="card" data-method="visa-mc">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="payment-option accordion" aria-label="Select Boost Wallet">
-                            <img src="assets/logos/pm-logo-boost.svg" alt="Boost Wallet" class="logo">
-                            <span class="payment-name">Boost Wallet</span>
-                            <input type="radio" name="paymentMethod" value="boost" data-category="wallet" data-method="boost">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="payment-option accordion" aria-label="Select Touch 'n Go eWallet">
-                            <img src="assets/logos/pm-logo-tng.svg" alt="Touch 'n Go eWallet" class="logo">
-                            <span class="payment-name">Touch 'n Go eWallet</span>
-                            <input checked type="radio" name="paymentMethod" value="tng" data-category="wallet" data-method="tng">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="payment-option accordion" aria-label="Select Shopee Pay">
-                            <img src="assets/logos/pm-logo-shopee.svg" alt="ShopeePay" class="logo">
-                            <span class="payment-name">Shopee Pay</span>
-                            <input type="radio" name="paymentMethod" value="shopeepay" data-category="wallet" data-method="shopeepay">
+                        <label class="payment-option accordion" aria-label="Select UnionPay">
+                            <img src="assets/logos/card/pm-logo-unionpay.svg" alt="UnionPay" class="logo">
+                            <span class="payment-name">UnionPay</span>
+                            <input type="radio" name="cardSelect" value="unionpay" data-category="card" data-method="unionpay">
                             <span class="checkmark"></span>
                         </label>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div> -->
-              
-              <!-- QR -->
-              <!-- <div class="payment-methods-option">
-                <button class="payment-methods-btn" id="btn-qr" role="radio" aria-checked="false"
-                  aria-labelledby="qr-label">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"
-                    class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
-                  </svg>
-                  <span class="payment-name" id="qr-label">QR</span>
-                  <input type="radio" name="paymentMethod" value="qr" data-category="qr">
-                  <span class="checkmark"></span>
-                </button>
-              </div> -->
+              </div>
 
               <!-- BNPL -->
-              <!-- <div class="payment-methods-option">
+              <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-bnpl" role="radio" aria-expanded="false" aria-controls="bnpl-content">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true" class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                  </svg>
-                  <span class="payment-name" id="buynowpaylater-label">Buy Now, Pay Later</span>
+                  <div class="icon-stack">
+                    <img src="assets/logos/bnpl/pm-logo-paylaterbygrab.svg" alt="Grab PayLater" class="icon-stack-item">
+                    <img src="assets/logos/bnpl/pm-logo-atome.svg" alt="Atome" class="icon-stack-item">
+                  </div>
+                  <span class="payment-name-group">
+                    <span class="payment-name" id="buynowpaylater-label">Instalment</span>
+                    <span class="payment-desc">Pay in monthly instalments</span>
+                  </span>
                   <input type="radio" name="paymentMethod" value="bnpl">
                   <span class="checkmark"></span>
                 </button>
@@ -357,13 +595,13 @@
                     <div class="form-group">
                       <div class="payment-list">
                         <label class="payment-option accordion" aria-label="Select Grab PayLater">
-                            <img src="assets/logos/pm-logo-paylaterbygrab.svg" alt="Paylater by Grab" class="logo">
-                            <span class="payment-name">Paylater by Grab</span>
+                            <img src="assets/logos/bnpl/pm-logo-paylaterbygrab.svg" alt="Paylater by Grab" class="logo">
+                            <span class="payment-name">Grab Paylater</span>
                             <input type="radio" name="paymentMethod" value="paylaterbygrab" data-category="bnpl" data-method="paylaterbygrab">
                             <span class="checkmark"></span>
                         </label>
                         <label class="payment-option accordion" aria-label="Select Atome">
-                            <img src="assets/logos/pm-logo-atome.svg" alt="Atome" class="logo">
+                            <img src="assets/logos/bnpl/pm-logo-atome.svg" alt="Atome" class="logo">
                             <span class="payment-name">Atome</span>
                             <input type="radio" name="paymentMethod" value="atome" data-category="bnpl" data-method="atome">
                             <span class="checkmark"></span>
@@ -372,14 +610,14 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
 
               <!-- CASH -->
               <!-- <div class="payment-methods-option">
                 <button class="payment-methods-btn" id="btn-bnpl" role="radio" aria-expanded="false" aria-controls="bnpl-content">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/>
-                  </svg>                  
+                  </svg>
                   <span class="payment-name" id="buynowpaylater-label">Cash</span>
                   <input type="radio" name="paymentMethod" value="bnpl">
                   <span class="checkmark"></span>
@@ -389,7 +627,7 @@
                     <div class="form-group">
                       <div class="payment-list">
                         <label class="payment-option accordion" aria-label="Select e-Pay">
-                            <img src="assets/logos/pm-logo-epay.svg" alt="e-Pay" class="logo">
+                            <img src="assets/logos/wallet/pm-logo-epay.svg" alt="e-Pay" class="logo">
                             <span class="payment-name">e-Pay</span>
                             <input type="radio" name="paymentMethod" value="epay" data-category="cash" data-method="paylaterbygrab">
                             <span class="checkmark"></span>
@@ -429,18 +667,10 @@
             </div>
           </div>
 
-          <div class="form-info">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="icon">
-              <path
-                d="m37.09 28 4-4m0 0-4-4m4 4h-17m9-3.23v-2.22m-26.18 0v14.18c0 1.81 1.47 3.27 3.27 3.27h19.64c1.81 0 3.27-1.47 3.27-3.27v-5.45M6.91 18.55v-3.27A3.28 3.28 0 0 1 10.18 12h19.64c1.81 0 3.27 1.47 3.27 3.27v3.27m-26.18.01h26.18m-22.91-3.28h.01-.01Zm3.28 0h.01-.01Zm3.27 0h.01-.01Z"
-                style="stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none" />
-              <path style="fill:none;stroke-width:0" d="M0 0h48v48H0z" />
-            </svg>
-            <span>You will be redirected to securely finalize your payment.​​​​​​​​​​​​​​​</span>
-          </div>
+
           <!-- PAY BUTTON -->
-          <button class="btn-pay" aria-label="Proceed to pay" disabled>
-            <span class="btn-text">Proceed to pay</span>
+          <button class="btn-pay" aria-label="Continue to the payment page" disabled>
+            <span class="btn-text">Continue to the payment page</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" class="icon lock-icon">
               <path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M6.8 21.8h10.5c1.2 0 2.2-1 2.2-2.2v-6.8c0-1.2-1-2.2-2.2-2.2H6.8c-1.2 0-2.2 1-2.2 2.2v6.8c0 1.2 1 2.2 2.2 2.2Z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.7c0-2.5-2-4.5-4.5-4.5s-4.5 2-4.5 4.5v3.8" />
@@ -458,13 +688,13 @@
                     </svg>
                 </span>
             </a>
+            <img src="assets/logos/pci-dss.svg" alt="PCI DSS Compliant" class="pci-logo">
         </div>
         </div>
       </div>
     </div>
   </div>
   <script src="js/script.js"></script>
-  <script src="js/select.js"></script>
   <script src="js/accountType.js"></script>
   <script src="js/payment-method.js"></script></body>
 

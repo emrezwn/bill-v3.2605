@@ -95,6 +95,9 @@
 .payment-methods-btn .icon.icon-big {
   width: 36px;
   height: 36px;
+  margin-right: 10px;
+  margin-left: 10px;
+  flex-shrink: 0;
 }
 .payment-methods-btn .icon.icon-wide {
   width: 72px;
@@ -109,10 +112,10 @@
 }
 .payment-methods-btn .icon-stack {
   display: flex;
+  justify-content: center;
   gap: 4px;
-  width: 48px;
+  width: 56px;
   flex-shrink: 0;
-  margin-right: 8px;
 }
 .payment-methods-btn .icon-stack .icon-stack-item {
   width: 24px;

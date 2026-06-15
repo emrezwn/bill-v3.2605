@@ -195,4 +195,11 @@ document.addEventListener("DOMContentLoaded", function () {
   closeAllAccordions();
   resetAllOptions();
   updatePayButton();
+
+  if (window.innerWidth >= 921) {
+    const firstOption = paymentOptions[0];
+    if (firstOption) {
+      firstOption.querySelector(".payment-methods-btn").click();
+    }
+  }
 });

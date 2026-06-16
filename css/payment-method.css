@@ -229,8 +229,8 @@
 
 /* Scrollable Bank List */
 .payment-list.bank-list {
-  max-height: 240px;
-  overflow-y: auto;
+  max-height: 230px;
+  overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) #e6ecff;
@@ -244,6 +244,21 @@
 .payment-list.bank-list::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 3px;
+}
+.form-group:has(.bank-list) {
+  position: relative;
+}
+.form-group:has(.bank-list)::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 0 0 7px 7px;
 }
 
 /* Offline bank option */
